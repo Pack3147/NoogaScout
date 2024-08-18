@@ -47,8 +47,8 @@
             width: 150%;
             height: 150%;
             background: url('assets/cosmos.jpg') no-repeat center center;
-            background-size: cover; /* Ensure it covers the entire area */
-            transform: translate(-50%, -50%);
+            background-size: cover; /* Ensures it covers the entire area */
+            transform: translate(-50%, -50%) scale(1.5); /* Enlarges the cosmos by 50% */
             transform-origin: center center; /* Center the rotation */
             animation: rotateBg 60s linear infinite;
             z-index: -1;
@@ -67,12 +67,13 @@
         
         @keyframes rotateBg {
             from {
-                transform: translate(-50%, -50%) rotate(0deg);
+                transform: translate(-50%, -50%) rotate(0deg) scale(1.5); /* Apply scaling in the animation */
             }
             to {
-                transform: translate(-50%, -50%) rotate(-360deg); /* Counterclockwise rotation */
+                transform: translate(-50%, -50%) rotate(-360deg) scale(1.5); /* Counterclockwise rotation with scaling */
             }
         }
+
 
 
 
