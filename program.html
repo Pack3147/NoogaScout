@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to NoogaScout</title>
+    <title>About Cub Scouts - NoogaScout</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,54 +12,113 @@
             background-color: #003F87; /* Solid Primary Cub Scout Blue */
             color: #FCD116; /* Secondary Cub Scout Yellow */
             text-align: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow-x: hidden;
         }
 
-        .welcome-container {
-            max-width: 600px;
-            padding: 20px;
-            text-align: center;
+        header {
+            background-color: #003F87; /* Primary Cub Scout Blue */
+            color: #FCD116; /* Secondary Cub Scout Yellow */
+            padding: 15px 0;
+            position: relative;
+            z-index: 10;
         }
 
-        .welcome-container h1 {
-            font-size: 3em;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
             margin: 0;
         }
 
-        .welcome-container p {
-            font-size: 1.5em;
-            margin: 20px 0;
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
 
-        .enter-site {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #FCD116; /* Secondary Cub Scout Yellow */
-            color: #003F87; /* Primary Cub Scout Blue */
+        nav ul li a {
+            color: #FCD116; /* Secondary Cub Scout Yellow */
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        }
+
+        .content {
+            padding: 20px;
+            margin: 50px auto;
+            background-color: #fff; /* White background for readability */
+            color: #003F87; /* Primary Cub Scout Blue text */
+            border-radius: 10px;
+            max-width: 900px;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+            color: #003F87; /* Primary Cub Scout Blue */
+        }
+
+        p {
+            color: #003F87; /* Primary Cub Scout Blue */
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
             margin-top: 20px;
         }
 
-        .enter-site:hover {
-            background-color: #003F87;
-            color: #FCD116;
+        footer {
+            background-color: #003F87; /* Primary Cub Scout Blue */
+            color: #FCD116; /* Secondary Cub Scout Yellow */
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
-    <div class="welcome-container">
-        <h1>Welcome to NoogaScout</h1>
-        <p>Your adventure begins here.</p>
-        <a href="index.html" class="enter-site">Enter the Site</a>
-    </div>
+    <header>
+        <h1>About Cub Scouts</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="index.html#registration">Registration</a></li>
+                <li><a href="index.html#calendar">Calendar</a></li>
+                <li><a href="index.html#forms">Forms</a></li>
+                <li><a href="index.html#fundraising">Fundraising</a></li>
+            </ul>
+        </nav>
+    </header>
 
-</body>
-</html>
+    <section class="content">
+        <h2>Who Are the Cub Scouts?</h2>
+        <p>
+            Cub Scouts is a program within the Boy Scouts of America, designed for boys and girls in kindergarten through fifth grade. It's a year-round program that provides fun, adventure, and challenges for young children while teaching them core values, leadership skills, and self-reliance.
+        </p>
+        <p>
+            Cub Scouts are organized into dens by grade level and gender, and they participate in various activities such as camping, hiking, service projects, and earning badges. The program is family-oriented, encouraging parents to be involved in their children's Scouting experience.
+        </p>
+
+        <h2>What Do Cub Scouts Do?</h2>
+        <p>
+            Cub Scouts participate in a wide variety of activities that build character, citizenship, and personal fitness. These activities include:
+        </p>
+        <ul>
+            <li>Outdoor adventures like camping, hiking, and fishing</li>
+            <li>Service projects that help the community</li>
+            <li>Learning new skills such as first aid, knots, and navigation</li>
+            <li>Working together on team-building activities and games</li>
+            <li>Earning badges and advancements that recognize their achievements</li>
+        </ul>
+
+        <h2>Cub Scout Rank Requirements</h2>
+        <p>
+            Each year, Cub Scouts work towards rank advancements that correspond to their grade level. The ranks include:
+        </p>
+        <ul>
+            <li>Lion (Kindergarten)</li>
+            <
