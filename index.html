@@ -40,18 +40,6 @@
             font-weight: bold;
         }
 
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('assets/CampingBackground.png') no-repeat center center/contain;
-            z-index: 1;
-            pointer-events: none;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%); /* Adjust these values based on your overlay's shape */
-        }
-        
         #background {
             position: fixed;
             top: 50%;
@@ -63,29 +51,50 @@
             transform: translate(-50%, -50%) scale(1.5);
             transform-origin: center center;
             animation: rotateBg 60s linear infinite;
-            z-index: -1;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%); /* Same clip-path as overlay to mask excess cosmos */
+            z-index: -2; /* Adjusted to sit behind everything */
         }
-
         
-        @keyframes rotateBg {
-            from {
-                transform: translate(-50%, -50%) rotate(0deg) scale(1.5); /* Apply scaling in the animation */
-            }
-            to {
-                transform: translate(-50%, -50%) rotate(-360deg) scale(1.5); /* Counterclockwise rotation with scaling */
-            }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/CampingBackground.png') no-repeat center center/contain;
+            z-index: 1;
+            pointer-events: none;
         }
-
+        
+        #mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black; /* or use a gradient if needed */
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%); /* Adjust to match the horizon line */
+            z-index: 0; /* Just behind the overlay */
+        }
+        
         .content {
             padding: 20px;
             margin-top: 50px;
             background-color: rgba(0, 0, 0, 0.6);
             display: inline-block;
             border-radius: 10px;
-            position: relative; /* Ensure it respects the z-index */
+            position: relative;
             z-index: 2; /* Higher than the overlay */
         }
+        
+        @keyframes rotateBg {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
+            }
+        }
+
 
         h1, h2 {
             margin: 10px 0;
