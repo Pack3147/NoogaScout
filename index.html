@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoogaScout - Welcome</title>
     <style>
-        body {
+                body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
             text-align: center;
             overflow: hidden;
         }
-
+        
         header {
             background-color: #003F87; /* Primary Cub Scout Blue */
             color: #FCD116; /* Secondary Cub Scout Yellow */
@@ -22,24 +22,24 @@
             position: relative;
             z-index: 10;
         }
-
+        
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
-
+        
         nav ul li {
             display: inline;
             margin: 0 15px;
         }
-
+        
         nav ul li a {
             color: #FCD116; /* Secondary Cub Scout Yellow */
             text-decoration: none;
             font-weight: bold;
         }
-
+        
         #background {
             position: fixed;
             top: 50%;
@@ -51,9 +51,9 @@
             transform: translate(-50%, -50%) scale(1.5);
             transform-origin: center center;
             animation: rotateBg 60s linear infinite;
-            z-index: -2;
+            z-index: -1; /* Bring the cosmos background back in view */
         }
-
+        
         #overlay {
             position: fixed;
             top: 0;
@@ -64,7 +64,7 @@
             z-index: 1;
             pointer-events: none;
         }
-
+        
         #mask {
             position: fixed;
             top: 0;
@@ -73,9 +73,9 @@
             height: 100%;
             background: black; /* Black to hide the cosmos below the horizon */
             clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%); /* Adjust to match the horizon line */
-            z-index: 0;
+            z-index: 0; /* Place the mask just below the overlay */
         }
-
+        
         .content {
             padding: 20px;
             margin-top: 50px;
@@ -84,18 +84,18 @@
             display: inline-block;
             border-radius: 10px;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Higher than the overlay */
         }
-
+        
         h1, h2 {
             margin: 10px 0;
             color: #FCD116; /* Secondary Cub Scout Yellow */
         }
-
+        
         p {
             color: #FCD116; /* Secondary Cub Scout Yellow */
         }
-
+        
         footer {
             background-color: #003F87; /* Primary Cub Scout Blue */
             color: #FCD116; /* Secondary Cub Scout Yellow */
@@ -105,7 +105,7 @@
             width: 100%;
             z-index: 10;
         }
-
+        
         @keyframes rotateBg {
             from {
                 transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
@@ -114,6 +114,7 @@
                 transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
             }
         }
+
     </style>
 </head>
 <body>
