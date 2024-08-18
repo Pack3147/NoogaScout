@@ -40,20 +40,6 @@
             font-weight: bold;
         }
 
-        #background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 150%;
-            height: 150%;
-            background: url('assets/cosmos.jpg') no-repeat center center;
-            background-size: cover; /* Ensures it covers the entire area */
-            transform: translate(-50%, -50%) scale(1.5); /* Enlarges the cosmos by 50% */
-            transform-origin: center center; /* Center the rotation */
-            animation: rotateBg 60s linear infinite;
-            z-index: -1;
-        }
-        
         #overlay {
             position: fixed;
             top: 0;
@@ -63,7 +49,24 @@
             background: url('assets/CampingBackground.png') no-repeat center center/contain;
             z-index: 1;
             pointer-events: none;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%); /* Adjust these values based on your overlay's shape */
         }
+        
+        #background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: url('assets/cosmos.jpg') no-repeat center center;
+            background-size: cover;
+            transform: translate(-50%, -50%) scale(1.5);
+            transform-origin: center center;
+            animation: rotateBg 60s linear infinite;
+            z-index: -1;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 70%); /* Same clip-path as overlay to mask excess cosmos */
+        }
+
         
         @keyframes rotateBg {
             from {
@@ -74,15 +77,14 @@
             }
         }
 
-
-
-
         .content {
             padding: 20px;
             margin-top: 50px;
             background-color: rgba(0, 0, 0, 0.6);
             display: inline-block;
             border-radius: 10px;
+            position: relative; /* Ensure it respects the z-index */
+            z-index: 2; /* Higher than the overlay */
         }
 
         h1, h2 {
