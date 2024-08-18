@@ -46,8 +46,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('assets/cosmos.jpg') no-repeat center center/cover;
-            background-size: cover;
+            background: url('assets/cosmos.jpg') no-repeat center center;
+            background-size: 150%; /* Ensures the image is larger than the viewport */
             animation: rotateBg 60s linear infinite;
             z-index: -1;
         }
@@ -62,15 +62,16 @@
             z-index: 1;
             pointer-events: none;
         }
-
+        
         @keyframes rotateBg {
             from {
                 transform: rotate(0deg);
             }
             to {
-                transform: rotate(360deg);
+                transform: rotate(-360deg); /* Counterclockwise rotation */
             }
         }
+
 
         .content {
             padding: 20px;
