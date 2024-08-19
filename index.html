@@ -13,8 +13,7 @@
             color: #fff;
             text-align: center;
             min-height: 100vh;
-            min-width: 1400px; /* Set a minimum width */
-            max-width: 1600px;
+            min-width: 400px; /* Set a minimum width */
             display: flex;
             flex-direction: column;
         }
@@ -55,7 +54,6 @@
             transform-origin: center center;
             animation: rotateBg 180s linear infinite;
             z-index: -2; /* Keep the cosmos background behind everything */
-            min-width: 1400px; /* Set a minimum width */
         }
 
         #overlay {
@@ -67,7 +65,6 @@
             background: url('assets/CampingBackground.png') no-repeat center center/contain;
             z-index: 1;
             pointer-events: none;
-            min-width: 1400px; /* Set a minimum width */
         }
 
         #mask {
@@ -91,7 +88,6 @@
             font-family: 'Brush Script MT', cursive; /* Cursive font */
             text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
             z-index: 5; /* Ensure text is above other elements */
-            min-width: 1400px; /* Set a minimum width */
         }
 
         .spacer {
