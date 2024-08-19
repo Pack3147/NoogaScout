@@ -13,7 +13,6 @@
             color: #fff;
             text-align: center;
             min-height: 100vh;
-            min-width: 600px; /* Set a minimum width for non-mobile */
             display: flex;
             flex-direction: column;
         }
@@ -23,6 +22,23 @@
             color: #FCD116; /* Secondary Cub Scout Yellow */
             padding: 15px 0;
             z-index: 10;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FCD116; /* Secondary Cub Scout Yellow */
+            text-decoration: none;
+            font-weight: bold;
         }
 
         #background {
@@ -46,7 +62,7 @@
             width: 100%;
             height: 100%;
             background: url('assets/CampingBackground.png') no-repeat center center/contain;
-            z-index: 1;
+            z-index: 0;
             pointer-events: none;
         }
 
@@ -57,14 +73,14 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, transparent 70%, black 100%);
-            z-index: 2; /* Place the mask on top of the background but below the content */
+            z-index: 1; /* Place the mask on top of the background but below the content */
             pointer-events: none;
         }
 
         .headline {
             margin-top: 15px;
             color: #fff; /* White text */
-            font-size: 2em; /* Adjust size as needed */
+            font-size: 3em; /* Adjust size as needed */
             font-family: 'Brush Script MT', cursive; /* Cursive font */
             text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
             z-index: 5; /* Ensure text is above other elements */
@@ -101,9 +117,6 @@
                 background-image: url('assets/static_cosmos.jpg'); /* Replace with static image */
                 animation: none;
             }
-            body.mobile header h1 + .headline {
-                margin-top: 0;
-            }
             body.mobile header nav {
                 display: none;
             }
@@ -112,6 +125,7 @@
                 flex-direction: column;
                 align-items: center;
                 margin-top: 20px;
+                z-index: 5; /* Ensure buttons are above the overlay */
             }
             body.mobile .mobile-buttons a {
                 display: block;
