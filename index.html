@@ -13,13 +13,15 @@
             color: #fff;
             text-align: center;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         header {
             background-color: #003F87; /* Primary Cub Scout Blue */
             color: #FCD116; /* Secondary Cub Scout Yellow */
             padding: 15px 0;
-            position: relative;
             z-index: 10;
         }
         
@@ -87,14 +89,15 @@
             text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
             z-index: 5; /* Ensure text is above other elements */
         }
+
+        .spacer {
+            flex-grow: 1;
+        }
         
         footer {
             background-color: #003F87; /* Primary Cub Scout Blue */
             color: #FCD116; /* Secondary Cub Scout Yellow */
             padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
             z-index: 10;
         }
         
@@ -132,6 +135,9 @@
     <div class="headline">
         Disconnect and do something Real!
     </div>
+
+    <!-- Spacer div to push footer to the bottom -->
+    <div class="spacer"></div>
 
     <footer>
         <p>&copy; 2024 NoogaScout. All Rights Reserved.</p>
