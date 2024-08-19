@@ -78,7 +78,10 @@
         }
 
         .headline {
-            margin-top: 15px;
+            position: absolute;
+            top: 50%;
+            left: 75%; /* 25% right of center */
+            transform: translate(-50%, -50%);
             color: #fff; /* White text */
             font-size: 3em; /* Adjust size as needed */
             font-family: 'Brush Script MT', cursive; /* Cursive font */
@@ -111,7 +114,9 @@
         @media only screen and (max-width: 768px) and (orientation: portrait) {
             body.mobile .headline {
                 font-size: 1.5em;
-                left: 50%;
+                top: 40%; /* Adjust the position slightly for mobile */
+                left: 50%; /* Centered in mobile view */
+                transform: translate(-50%, -50%);
             }
             body.mobile #background {
                 background-image: url('assets/static_cosmos.jpg'); /* Replace with static image */
@@ -160,7 +165,6 @@
 
     <header>
         <h1>Cub Scout Pack 3147</h1>
-        <div class="headline">Disconnect and do something Real!</div>
         <nav>
             <ul>
                 <li><a href="program.html">Program</a></li>
@@ -175,6 +179,10 @@
     <div id="background"></div>
     <div id="overlay"></div>
     <div id="mask"></div>
+
+    <div class="headline">
+        Disconnect and do something Real!
+    </div>
 
     <div class="spacer"></div> <!-- Spacer div to push footer to the bottom -->
 
