@@ -112,15 +112,18 @@
 
         /* Mobile-specific styles */
         @media only screen and (max-width: 768px) and (orientation: portrait) {
+            body.mobile #background {
+                width: 100%;
+                height: 100%;
+                background-size: cover; /* Ensure it covers the whole screen */
+                transform: none; /* Remove translation and scaling */
+                animation: none; /* Remove the rotation */
+            }
             body.mobile .headline {
                 font-size: 1.5em;
                 top: 40%; /* Adjust the position slightly for mobile */
                 left: 50%; /* Centered in mobile view */
                 transform: translate(-50%, -50%);
-            }
-            body.mobile #background {
-                background-image: url('assets/static_cosmos.jpg'); /* Replace with static image */
-                animation: none;
             }
             body.mobile header nav {
                 display: none;
@@ -184,8 +187,6 @@
         Disconnect and do something Real!
     </div>
 
-    <div class="spacer"></div> <!-- Spacer div to push footer to the bottom -->
-
     <!-- Mobile Navigation Buttons -->
     <div class="mobile-buttons">
         <a href="program.html">Program</a>
@@ -201,3 +202,4 @@
 
 </body>
 </html>
+
