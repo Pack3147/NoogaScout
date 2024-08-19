@@ -12,7 +12,6 @@
             background: #000;
             color: #fff;
             text-align: center;
-            overflow: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -79,10 +78,7 @@
         }
 
         .headline {
-            position: absolute;
-            top: 50%;
-            left: 75%; /* 25% right of center */
-            transform: translate(-50%, -50%);
+            margin-top: auto;
             color: #fff; /* White text */
             font-size: 3em; /* Adjust size as needed */
             font-family: 'Brush Script MT', cursive; /* Cursive font */
@@ -90,11 +86,8 @@
             z-index: 5; /* Ensure text is above other elements */
         }
 
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .spacer {
+            flex-grow: 1;
         }
 
         footer {
@@ -102,7 +95,6 @@
             color: #FCD116; /* Secondary Cub Scout Yellow */
             padding: 10px 0;
             z-index: 10;
-            height: calc(100vh - 100%); /* Adjust height dynamically */
             margin-top: auto;
         }
 
@@ -137,11 +129,11 @@
     <div id="overlay"></div>
     <div id="mask"></div>
 
+    <div class="spacer"></div> <!-- Spacer div to push footer to the bottom -->
+
     <div class="headline">
         Disconnect and do something Real!
     </div>
-
-    <div class="content"></div> <!-- Empty content for flex growth -->
 
     <footer>
         <p>&copy; 2024 NoogaScout. All Rights Reserved.</p>
