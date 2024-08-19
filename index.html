@@ -45,9 +45,9 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 175%;
-            height: 175%;
-            background: url('assets/CosmosWheel2.png') no-repeat center center;
+            width: 150%;
+            height: 125%;
+            background: url('assets/CosmosWheel3.png') no-repeat center center;
             background-size: contain;
             transform: translate(-50%, -50%) scale(2,1);
             transform-origin: center center;
@@ -130,7 +130,7 @@
             }
 
             header nav {
-                display: none; /* Hide the navigation menu */
+                display: none; /* Hide the desktop navigation menu on mobile */
             }
 
             .mobile-buttons {
@@ -165,9 +165,9 @@
     <script>
         function checkMobileOrientation() {
             if (window.innerWidth <= 768) {
-                document.body.classList.add('mobile');
+                document.querySelector('.mobile-buttons').style.display = 'flex';
             } else {
-                document.body.classList.remove('mobile');
+                document.querySelector('.mobile-buttons').style.display = 'none';
             }
         }
 
