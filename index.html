@@ -76,24 +76,16 @@
             pointer-events: none;
         }
         
-        .content {
-            padding: 20px;
-            margin-top: 50px;
-            background-color: rgba(0, 63, 135, 0.8); /* Primary Cub Scout Blue with transparency */
-            color: #FCD116; /* Secondary Cub Scout Yellow */
-            display: inline-block;
-            border-radius: 10px;
-            position: relative;
-            z-index: 3; /* Content in front of everything else */
-        }
-        
-        h1, h2 {
-            margin: 10px 0;
-            color: #FCD116; /* Secondary Cub Scout Yellow */
-        }
-        
-        p {
-            color: #FCD116; /* Secondary Cub Scout Yellow */
+        .headline {
+            position: absolute;
+            top: 50%;
+            left: 75%; /* 25% right of center */
+            transform: translate(-50%, -50%);
+            color: #fff; /* White text */
+            font-size: 3em; /* Adjust size as needed */
+            font-family: 'Brush Script MT', cursive; /* Cursive font */
+            text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
+            z-index: 5; /* Ensure text is above other elements */
         }
         
         footer {
@@ -137,30 +129,9 @@
     <div id="overlay"></div>
     <div id="mask"></div>
 
-    <section class="content" id="welcome">
-        <h2>Program</h2>
-        <p>Learn about the Cub Scout Program</p>
-    </section>
-
-    <section class="content" id="registration">
-        <h2>Registration</h2>
-        <p>Sign up for our upcoming events and activities!</p>
-    </section>
-
-    <section class="content" id="calendar">
-        <h2>Calendar</h2>
-        <p>Check out our calendar for upcoming events.</p>
-    </section>
-
-    <section class="content" id="forms">
-        <h2>Forms</h2>
-        <p>Download the necessary forms for your participation.</p>
-    </section>
-
-    <section class="content" id="fundraising">
-        <h2>Fundraising</h2>
-        <p>Support our pack through fundraising activities!</p>
-    </section>
+    <div class="headline">
+        Disconnect and do something Real!
+    </div>
 
     <footer>
         <p>&copy; 2024 NoogaScout. All Rights Reserved.</p>
