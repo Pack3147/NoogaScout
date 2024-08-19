@@ -78,15 +78,13 @@
         }
 
         .headline {
-            position: absolute;
-            top: 50%;
-            left: 75%; /* 25% right of center */
-            transform: translate(-50%, -50%);
+            position: relative;
+            margin-top: 20px;
             color: #fff; /* White text */
             font-size: 3em; /* Adjust size as needed */
             font-family: 'Brush Script MT', cursive; /* Cursive font */
             text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
-            z-index: 5; /* Ensure text is above other elements */
+            z-index: 10; /* Ensure text is above other elements */
         }
 
         .spacer {
@@ -114,9 +112,7 @@
         @media only screen and (max-width: 768px) {
             .headline {
                 font-size: 1.5em; /* Half the original size */
-                top: 50%; /* Keep it centered vertically */
-                left: 50%; /* Centered horizontally */
-                transform: translate(-50%, -50%);
+                margin-top: 10px; /* Adjust the position */
             }
 
             #background {
@@ -135,7 +131,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-top: 20px;
+                margin-top: 10px;
                 z-index: 5; /* Ensure buttons are above the overlay */
             }
 
@@ -172,15 +168,6 @@
 
     <header>
         <h1>Cub Scout Pack 3147</h1>
-        <nav>
-            <ul>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="forms.html">Forms</a></li>
-                <li><a href="fundraising.html">Fundraising</a></li>
-            </ul>
-        </nav>
     </header>
 
     <div id="background"></div>
@@ -191,8 +178,6 @@
         Disconnect and do something Real!
     </div>
 
-    <div class="spacer"></div> <!-- Spacer div to push footer to the bottom -->
-    
     <!-- Mobile Navigation Buttons -->
     <div class="mobile-buttons">
         <a href="program.html">Program</a>
