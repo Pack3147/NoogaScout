@@ -13,6 +13,7 @@
             color: #fff;
             text-align: center;
             min-height: 100vh;
+            min-width: 600px; /* Set a minimum width */
             display: flex;
             flex-direction: column;
         }
@@ -78,7 +79,10 @@
         }
 
         .headline {
-            margin-top: auto;
+            position: absolute;
+            top: 50%;
+            left: 75%; /* 25% right of center */
+            transform: translate(-50%, -50%);
             color: #fff; /* White text */
             font-size: 3em; /* Adjust size as needed */
             font-family: 'Brush Script MT', cursive; /* Cursive font */
