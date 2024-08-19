@@ -13,7 +13,7 @@
             color: #fff;
             text-align: center;
             min-height: 100vh;
-            min-width: 400px; /* Set a minimum width */
+            min-width: 600px; /* Set a minimum width for non-mobile */
             display: flex;
             flex-direction: column;
         }
@@ -111,7 +111,34 @@
             }
         }
 
+        /* Mobile-specific styles */
+        @media only screen and (max-width: 768px) and (orientation: portrait) {
+            body.mobile .headline {
+                font-size: 2em;
+                left: 50%;
+            }
+            body.mobile #background {
+                background-image: url('assets/static_cosmos.jpg'); /* Replace with static image */
+                animation: none;
+            }
+            body.mobile .headline {
+                top: 40%; /* Adjust positioning for mobile */
+            }
+        }
+
     </style>
+    <script>
+        function checkMobileOrientation() {
+            if (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) {
+                document.body.classList.add('mobile');
+            } else {
+                document.body.classList.remove('mobile');
+            }
+        }
+
+        window.addEventListener('resize', checkMobileOrientation);
+        window.addEventListener('load', checkMobileOrientation);
+    </script>
 </head>
 <body>
 
