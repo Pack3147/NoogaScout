@@ -47,7 +47,7 @@ header {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    z-index: 6; /* Ensure buttons are in front of other elements */
+    z-index: 10; /* Ensure buttons are in front of all other elements */
 }
 
 .mobile-buttons a {
@@ -72,11 +72,15 @@ header {
     
     .mobile-buttons {
         display: flex; /* Show mobile buttons */
+        z-index: 10; /* Ensure mobile buttons are above other elements */
     }
 
     .headline {
-        font-size: 1.5em; /* Reduce headline size for mobile */
-        z-index: 5; /* Ensure headline stays above most elements, below buttons */
+        font-size: 2em; /* Reduce headline size for mobile */
+        top: 50%; /* Keep centered vertically */
+        left: 50%; /* Keep centered horizontally */
+        transform: translate(-50%, -50%);
+        z-index: 5; /* Ensure headline stays above background and overlay */
     }
 
     #background {
@@ -84,7 +88,7 @@ header {
     }
 
     body.sub-page {
-        background-color: transparent; /* Make sure sub-page background is transparent */
+        background-color: transparent; /* Ensure sub-page background is transparent on mobile */
     }
 }
 
