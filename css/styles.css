@@ -37,8 +37,8 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Background styling */
-#background {
+/* Background styling for the index page */
+#index-page #background {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -50,6 +50,22 @@ nav ul li a {
     transform-origin: center center;
     animation: rotateBg 240s linear infinite;
     z-index: -10; /* Ensure background is behind everything */
+}
+
+/* Background styling for sub-pages */
+.sub-page {
+    background-color: #003F87; /* Primary Cub Scout Blue */
+}
+
+.sub-page #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/StaticBackground.png') no-repeat center center/cover; /* Example static background */
+    z-index: -10;
+    pointer-events: none;
 }
 
 /* Overlay styling */
@@ -79,9 +95,40 @@ nav ul li a {
     text-align: center; /* Center text within the available width */
 }
 
-/* Spacer styling */
-.spacer {
-    flex-grow: 1;
+/* Content section styling */
+.content {
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #fff; /* White background for readability */
+    color: #003F87; /* Primary Cub Scout Blue text */
+    border-radius: 10px;
+    max-width: 900px;
+    width: 90%; /* Ensure content takes up most of the screen */
+    overflow: hidden; /* Ensure content is not cut off */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+    text-align: center; /* Center align the text in the content */
+    z-index: 2; /* Ensure content stays above background and overlay */
+}
+
+/* Lists styling */
+ul {
+    list-style-type: none; /* Remove bullets from the list */
+    padding-left: 0; /* Remove default padding */
+    text-align: center; /* Center align the list items */
+    margin: 10px 0;
+    display: inline-block; /* Center the entire list block */
+}
+
+ul li {
+    margin-bottom: 10px; /* Add spacing between list items */
+}
+
+/* Image styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 /* Footer styling */
@@ -148,3 +195,4 @@ footer {
 .mobile-buttons {
     display: none;
 }
+vvvvvvvvvvvvvvvv
