@@ -4,98 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration - NoogaScout</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #003F87; /* Solid Primary Cub Scout Blue */
-            color: #FCD116; /* Secondary Cub Scout Yellow */
-            text-align: center;
-        }
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS -->
+    <script>
+        var pageTitle = "Registration"; // Set the custom title for this page
 
-        header {
-            background-color: #003F87; /* Primary Cub Scout Blue */
-            color: #FCD116; /* Secondary Cub Scout Yellow */
-            padding: 15px 0;
-            position: relative;
-            z-index: 10;
-        }
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+                                // Check if the element loaded is the header and set the title
+                                if (elmnt.getAttribute("include-html") === "header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Cub Scout Pack 3147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
         }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #FCD116; /* Secondary Cub Scout Yellow */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .content {
-            padding: 20px;
-            margin: 50px auto;
-            background-color: #fff; /* White background for readability */
-            color: #003F87; /* Primary Cub Scout Blue text */
-            border-radius: 10px;
-            max-width: 900px;
-            box-sizing: border-box;
-        }
-
-        h1, h2 {
-            margin: 10px 0;
-            color: #003F87; /* Primary Cub Scout Blue */
-        }
-
-        p {
-            color: #003F87; /* Primary Cub Scout Blue */
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        a {
-            color: #003F87; /* Primary Cub Scout Blue */
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        .link-container {
-            margin-top: 20px;
-        }
-
-        footer {
-            background-color: #003F87; /* Primary Cub Scout Blue */
-            color: #FCD116; /* Secondary Cub Scout Yellow */
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            z-index: 10;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="sub-page" onload="includeHTML()">
 
-    <header>
-        <h1>Registration</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="forms.html">Forms</a></li>
-                <li><a href="fundraising.html">Fundraising</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div include-html="header.html"></div>
+
+    <div id="background"></div>
 
     <section class="content">
         <h2>Join Pack 3147 Today!</h2>
@@ -127,9 +77,7 @@
         </p>
     </section>
 
-    <footer>
-        <p>&copy; 2024 NoogaScout. All Rights Reserved.</p>
-    </footer>
+    <div include-html="footer.html"></div>
 
 </body>
 </html>
