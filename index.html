@@ -6,32 +6,38 @@
     <title>NoogaScout - Welcome</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS -->
     <script>
-        function checkMobileOrientation() {
-            if (window.innerWidth <= 768) {
-                document.querySelector('.mobile-buttons').style.display = 'flex';
-            } else {
-                document.querySelector('.mobile-buttons').style.display = 'none';
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /* Search for elements with a certain attribute: */
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
             }
         }
-
-        window.addEventListener('resize', checkMobileOrientation);
-        window.addEventListener('load', checkMobileOrientation);
     </script>
 </head>
-<body>
+<body onload="includeHTML()">
 
-    <header>
-        <h1>Cub Scout Pack 3147</h1>
-        <nav>
-            <ul>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="forms.html">Forms</a></li>
-                <li><a href="fundraising.html">Fundraising</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div include-html="header.html"></div>
 
     <div id="background"></div>
     <div id="overlay"></div>
@@ -42,19 +48,8 @@
     </div>
 
     <div class="spacer"></div> <!-- Spacer div to push footer to the bottom -->
-    
-    <!-- Mobile Navigation Buttons -->
-    <div class="mobile-buttons">
-        <a href="program.html">Program</a>
-        <a href="registration.html">Registration</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="forms.html">Forms</a>
-        <a href="fundraising.html">Fundraising</a>
-    </div>
 
-    <footer>
-        <p>&copy; 2024 NoogaScout. All Rights Reserved.</p>
-    </footer>
+    <div include-html="footer.html"></div>
 
 </body>
 </html>
