@@ -1,0 +1,127 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    padding: 15px 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.headline {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 2px 2px 4px #000;
+    z-index: 5;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #003F87;
+    color: #FCD116;
+    padding: 10px 0;
+    z-index: 10;
+    margin-top: auto;
+}
+
+@keyframes rotateBg {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
+    }
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 768px) {
+    .headline {
+        font-size: 1.5em;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: 10px;
+        position: relative;
+    }
+
+    #background {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 175%;
+        height: 175%;
+        background: url('assets/CosmosWheel3.png') no-repeat center center;
+        background-size: contain;
+        transform: translate(-50%, -50%) scale(2,1);
+        transform-origin: center center;
+        animation: rotateBg 240s linear infinite;
+        z-index: -2;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .mobile-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        z-index: 5;
+    }
+
+    .mobile-buttons a {
+        display: block;
+        background-color: #003F87;
+        color: #FCD116;
+        padding: 15px;
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 1.2em;
+    }
+}
+
+/* Hide mobile-specific elements on desktop */
+.mobile-buttons {
+    display: none;
+}
