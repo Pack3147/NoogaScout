@@ -20,21 +20,59 @@ header {
 }
 
 /* Navigation menu styling */
-nav ul {
+.desktop-nav {
+    display: block; /* Show desktop nav by default */
+}
+
+.desktop-nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-nav ul li {
+.desktop-nav ul li {
     display: inline;
     margin: 0 15px;
 }
 
-nav ul li a {
+.desktop-nav ul li a {
     color: #FCD116; /* Secondary Cub Scout Yellow */
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Mobile Navigation Styling */
+.mobile-buttons {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    z-index: 5;
+}
+
+.mobile-buttons a {
+    display: block;
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    padding: 15px;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .desktop-nav {
+        display: none; /* Hide desktop nav on mobile */
+    }
+    
+    .mobile-buttons {
+        display: flex; /* Show mobile buttons */
+    }
 }
 
 /* Background styling for the index page */
@@ -152,47 +190,3 @@ footer {
         transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
     }
 }
-
-/* Mobile-specific styles */
-@media only screen and (max-width: 768px) {
-    .headline {
-        font-size: 1.5em;
-        top: 40%; /* Adjust position for mobile */
-        left: 50%; 
-        transform: translate(-50%, -50%);
-        margin-top: 10px;
-        position: absolute;
-    }
-
-    header nav {
-        display: none;
-    }
-
-    .mobile-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-        z-index: 5;
-    }
-
-    .mobile-buttons a {
-        display: block;
-        background-color: #003F87;
-        color: #FCD116;
-        padding: 15px;
-        margin: 10px 0;
-        width: 80%;
-        text-align: center;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 5px;
-        font-size: 1.2em;
-    }
-}
-
-/* Hide mobile-specific elements on desktop */
-.mobile-buttons {
-    display: none;
-}
-vvvvvvvvvvvvvvvv
