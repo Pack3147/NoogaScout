@@ -45,6 +45,7 @@ nav ul li a {
     color: #003F87; /* Primary Cub Scout Blue text */
     border-radius: 10px;
     max-width: 900px;
+    width: 90%; /* Ensure content takes up most of the screen */
     overflow: hidden; /* Ensure content is not cut off */
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
     text-align: center; /* Center align the text in the content */
@@ -96,16 +97,6 @@ footer {
     position: relative;
 }
 
-/* Background rotation animation */
-@keyframes rotateBg {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
-    }
-}
-
 /* Calendar container styling */
 .calendar-container {
     padding: 20px;
@@ -113,11 +104,10 @@ footer {
     background-color: #fff; /* White background for the calendar */
     color: #003F87; /* Primary Cub Scout Blue text */
     border-radius: 10px;
-    max-width: 100%; /* Allow the calendar to take full width */
+    max-width: 100%; /* Ensure the calendar container takes full width */
     box-sizing: border-box;
 }
 
-/* iFrame styling */
 iframe {
     border: 0;
     width: 100%; /* Ensure iframe fills the container */
@@ -166,4 +156,5 @@ iframe {
 .mobile-buttons {
     display: none;
 }
+
 
