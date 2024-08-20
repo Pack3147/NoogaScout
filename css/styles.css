@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #000;
+    background-color: #003F87; /* Solid Primary Cub Scout Blue */
     color: #fff;
     text-align: center;
     min-height: 100vh;
@@ -37,43 +37,17 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Background styling */
-#background {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 175%;
-    height: 175%;
-    background: url('../assets/CosmosWheel3.png') no-repeat center center;
-    background-size: contain;
-    transform: translate(-50%, -50%) scale(2,1);
-    transform-origin: center center;
-    animation: rotateBg 240s linear infinite;
-    z-index: -2; /* Keep the cosmos background behind everything */
-}
-
-/* Overlay styling */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Mask styling */
-#mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 70%, black 100%);
-    z-index: 1; /* Place the mask on top of the background but below the content */
-    pointer-events: none;
+/* Content section styling */
+.content {
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #fff; /* White background for readability */
+    color: #003F87; /* Primary Cub Scout Blue text */
+    border-radius: 10px;
+    max-width: 900px;
+    overflow: hidden; /* Ensure content is not cut off */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+    text-align: center; /* Center align the text in the content */
 }
 
 /* Headline styling */
@@ -89,15 +63,31 @@ nav ul li a {
     z-index: 5;
 }
 
-/* Spacer styling */
-.spacer {
-    flex-grow: 1;
+/* Lists styling */
+ul {
+    list-style-type: none; /* Remove bullets from the list */
+    padding-left: 0; /* Remove default padding */
+    text-align: center; /* Center align the list items */
+    margin: 10px 0;
+    display: inline-block; /* Center the entire list block */
+}
+
+ul li {
+    margin-bottom: 10px; /* Add spacing between list items */
+}
+
+/* Image styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 /* Footer styling */
 footer {
-    background-color: #003F87;
-    color: #FCD116;
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
     padding: 10px 0;
     z-index: 10;
     margin-top: auto;
@@ -130,7 +120,7 @@ footer {
 /* iFrame styling */
 iframe {
     border: 0;
-    width: 100%; /* Set iframe to fill the width of its container */
+    width: 100%; /* Ensure iframe fills the container */
     height: 800px;
 }
 
@@ -176,3 +166,4 @@ iframe {
 .mobile-buttons {
     display: none;
 }
+
