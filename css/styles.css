@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,6 +11,7 @@ body {
     flex-direction: column;
 }
 
+/* Header styling */
 header {
     background-color: #003F87; /* Primary Cub Scout Blue */
     color: #FCD116; /* Secondary Cub Scout Yellow */
@@ -17,6 +19,7 @@ header {
     z-index: 10;
 }
 
+/* Navigation menu styling */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -34,6 +37,7 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* Background styling */
 #background {
     position: fixed;
     top: 50%;
@@ -48,6 +52,7 @@ nav ul li a {
     z-index: -2; /* Keep the cosmos background behind everything */
 }
 
+/* Overlay styling */
 #overlay {
     position: fixed;
     top: 0;
@@ -59,6 +64,7 @@ nav ul li a {
     pointer-events: none;
 }
 
+/* Mask styling */
 #mask {
     position: fixed;
     top: 0;
@@ -70,6 +76,7 @@ nav ul li a {
     pointer-events: none;
 }
 
+/* Headline styling */
 .headline {
     position: absolute;
     top: 60%;
@@ -82,21 +89,34 @@ nav ul li a {
     z-index: 5;
 }
 
+/* Spacer styling */
 .spacer {
     flex-grow: 1;
 }
 
+/* Footer styling */
 footer {
-    background-color: #003F87; /* Primary Cub Scout Blue */
-    color: #FCD116; /* Secondary Cub Scout Yellow */
+    background-color: #003F87;
+    color: #FCD116;
     padding: 10px 0;
-    z-index: 20; /* Higher z-index to ensure visibility */
-    position: relative; /* Ensure it's placed relative to other content */
+    z-index: 10;
+    margin-top: auto;
     width: 100%;
     text-align: center;
-    margin-top: auto;
+    position: relative;
 }
 
+/* Background rotation animation */
+@keyframes rotateBg {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
+    }
+}
+
+/* Calendar container styling */
 .calendar-container {
     padding: 20px;
     margin: 50px auto;
@@ -107,21 +127,11 @@ footer {
     box-sizing: border-box;
 }
 
+/* iFrame styling */
 iframe {
     border: 0;
     width: 100%; /* Set iframe to fill the width of its container */
     height: 800px;
-}
-
-
-
-@keyframes rotateBg {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
-    }
 }
 
 /* Mobile-specific styles */
@@ -133,20 +143,6 @@ iframe {
         transform: none;
         margin-top: 10px;
         position: relative;
-    }
-
-    #background {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 175%;
-        height: 175%;
-        background: url('../assets/CosmosWheel3.png') no-repeat center center;
-        background-size: contain;
-        transform: translate(-50%, -50%) scale(2,1);
-        transform-origin: center center;
-        animation: rotateBg 240s linear infinite;
-        z-index: -2;
     }
 
     header nav {
