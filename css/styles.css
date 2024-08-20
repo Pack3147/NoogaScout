@@ -47,13 +47,13 @@ header {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    z-index: 5;
+    z-index: 6; /* Ensure buttons are in front of other elements */
 }
 
 .mobile-buttons a {
     display: block;
-    background-color: #003F87; /* Primary Cub Scout Blue */
-    color: #FCD116; /* Secondary Cub Scout Yellow */
+    background-color: #FCD116; /* Secondary Cub Scout Yellow */
+    color: #003F87; /* Primary Cub Scout Blue */
     padding: 15px;
     margin: 10px 0;
     width: 80%;
@@ -72,6 +72,19 @@ header {
     
     .mobile-buttons {
         display: flex; /* Show mobile buttons */
+    }
+
+    .headline {
+        font-size: 1.5em; /* Reduce headline size for mobile */
+        z-index: 5; /* Ensure headline stays above most elements, below buttons */
+    }
+
+    #background {
+        z-index: -10; /* Ensure background stays behind everything */
+    }
+
+    body.sub-page {
+        background-color: transparent; /* Make sure sub-page background is transparent */
     }
 }
 
@@ -92,7 +105,7 @@ header {
 
 /* Background styling for sub-pages */
 .sub-page {
-    background-color: #003F87; /* Primary Cub Scout Blue */
+    background-color: transparent; /* Set background color to transparent for mobile */
 }
 
 .sub-page #background {
@@ -116,21 +129,6 @@ header {
     background: url('../assets/CampingBackground.png') no-repeat center center/cover;
     z-index: 0;
     pointer-events: none;
-}
-
-/* Headline styling */
-.headline {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 3em;
-    font-family: 'Brush Script MT', cursive;
-    text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
-    z-index: 5; /* Ensure headline is above other elements */
-    width: 100%;
-    text-align: center; /* Center text within the available width */
 }
 
 /* Content section styling */
