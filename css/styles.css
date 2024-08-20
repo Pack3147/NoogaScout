@@ -87,12 +87,16 @@ nav ul li a {
 }
 
 footer {
-    background-color: #003F87;
-    color: #FCD116;
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
     padding: 10px 0;
-    z-index: 10;
+    z-index: 20; /* Higher z-index to ensure visibility */
+    position: relative; /* Ensure it's placed relative to other content */
+    width: 100%;
+    text-align: center;
     margin-top: auto;
 }
+
 
 @keyframes rotateBg {
     from {
