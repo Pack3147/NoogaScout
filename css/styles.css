@@ -37,6 +37,33 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* Background styling */
+#background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 175%;
+    height: 175%;
+    background: url('../assets/CosmosWheel3.png') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%) scale(2,1);
+    transform-origin: center center;
+    animation: rotateBg 240s linear infinite;
+    z-index: -10; /* Ensure background is behind everything */
+}
+
+/* Overlay styling */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
 /* Content section styling */
 .content {
     padding: 20px;
@@ -49,19 +76,7 @@ nav ul li a {
     overflow: hidden; /* Ensure content is not cut off */
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
     text-align: center; /* Center align the text in the content */
-}
-
-/* Headline styling */
-.headline {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 3em;
-    font-family: 'Brush Script MT', cursive;
-    text-shadow: 2px 2px 4px #000;
-    z-index: 5;
+    z-index: 2; /* Ensure content stays above background and overlay */
 }
 
 /* Lists styling */
@@ -95,51 +110,17 @@ footer {
     width: 100%;
     text-align: center;
     position: relative;
+    z-index: 2;
 }
 
-/* Background styling */
-#background {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 175%;
-    height: 175%;
-    background: url('../assets/CosmosWheel3.png') no-repeat center center;
-    background-size: contain;
-    transform: translate(-50%, -50%) scale(2,1);
-    transform-origin: center center;
-    animation: rotateBg 240s linear infinite;
-    z-index: -10; /* Ensure background is behind everything */
-}
-
-/* Overlay styling */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Calendar container styling */
-.calendar-container {
-    padding: 20px;
-    margin: 50px auto;
-    background-color: #fff; /* White background for the calendar */
-    color: #003F87; /* Primary Cub Scout Blue text */
-    border-radius: 10px;
-    width: 90%; /* Ensure the calendar container takes up most of the screen */
-    max-width: 1200px; /* Allow calendar to stretch wider */
-    box-sizing: border-box;
-}
-
-iframe {
-    border: 0;
-    width: 100%; /* Ensure iframe fills the container */
-    height: 800px;
+/* Background rotation animation */
+@keyframes rotateBg {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
+    }
 }
 
 /* Mobile-specific styles */
