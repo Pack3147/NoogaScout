@@ -64,40 +64,24 @@ nav ul li a {
     pointer-events: none;
 }
 
-/* Content section styling */
-.content {
-    padding: 20px;
-    margin: 50px auto;
-    background-color: #fff; /* White background for readability */
-    color: #003F87; /* Primary Cub Scout Blue text */
-    border-radius: 10px;
-    max-width: 900px;
-    width: 90%; /* Ensure content takes up most of the screen */
-    overflow: hidden; /* Ensure content is not cut off */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
-    text-align: center; /* Center align the text in the content */
-    z-index: 2; /* Ensure content stays above background and overlay */
+/* Headline styling */
+.headline {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
+    z-index: 5; /* Ensure headline is above other elements */
+    width: 100%;
+    text-align: center; /* Center text within the available width */
 }
 
-/* Lists styling */
-ul {
-    list-style-type: none; /* Remove bullets from the list */
-    padding-left: 0; /* Remove default padding */
-    text-align: center; /* Center align the list items */
-    margin: 10px 0;
-    display: inline-block; /* Center the entire list block */
-}
-
-ul li {
-    margin-bottom: 10px; /* Add spacing between list items */
-}
-
-/* Image styling */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 20px;
+/* Spacer styling */
+.spacer {
+    flex-grow: 1;
 }
 
 /* Footer styling */
@@ -106,11 +90,10 @@ footer {
     color: #FCD116; /* Secondary Cub Scout Yellow */
     padding: 10px 0;
     z-index: 10;
-    margin-top: auto;
     width: 100%;
     text-align: center;
-    position: relative;
-    z-index: 2;
+    position: fixed;
+    bottom: 0;
 }
 
 /* Background rotation animation */
@@ -127,11 +110,11 @@ footer {
 @media only screen and (max-width: 768px) {
     .headline {
         font-size: 1.5em;
-        top: auto;
-        left: auto;
-        transform: none;
+        top: 40%; /* Adjust position for mobile */
+        left: 50%; 
+        transform: translate(-50%, -50%);
         margin-top: 10px;
-        position: relative;
+        position: absolute;
     }
 
     header nav {
