@@ -97,6 +97,23 @@ footer {
     margin-top: auto;
 }
 
+.calendar-container {
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #fff; /* White background for the calendar */
+    color: #003F87; /* Primary Cub Scout Blue text */
+    border-radius: 10px;
+    max-width: 100%; /* Allow the calendar to take full width */
+    box-sizing: border-box;
+}
+
+iframe {
+    border: 0;
+    width: 100%; /* Set iframe to fill the width of its container */
+    height: 800px;
+}
+
+
 
 @keyframes rotateBg {
     from {
