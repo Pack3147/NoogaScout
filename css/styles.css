@@ -47,7 +47,7 @@ header {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    z-index: 11; /* Ensure buttons are in front of all other elements */
+    z-index: 10; /* Ensure buttons are in front of all other elements */
 }
 
 .mobile-buttons a {
@@ -103,7 +103,7 @@ header {
     width: 100%;
     height: 100%;
     background: url('../assets/CampingBackground.png') no-repeat center center/cover;
-    z-index: 1;
+    z-index: 0; /* Ensure overlay is behind mobile buttons */
     pointer-events: none;
 }
 
@@ -128,8 +128,8 @@ header {
     margin: 50px auto;
     background-color: #fff; /* White background for readability */
     color: #003F87; /* Primary Cub Scout Blue text */
-    border-radius: 10px;
-    max-width: 900px;
+    border-radius: 10px; /* Rounded corners */
+    max-width: 900px; /* Maximum width for content */
     width: 90%; /* Ensure content takes up most of the screen */
     overflow: hidden; /* Ensure content is not cut off */
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
@@ -188,7 +188,7 @@ footer {
     
     .mobile-buttons {
         display: flex; /* Show mobile buttons */
-        z-index: 11; /* Ensure mobile buttons are above everything */
+        z-index: 10; /* Ensure mobile buttons are above everything */
     }
 
     .headline {
