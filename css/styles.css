@@ -97,6 +97,33 @@ footer {
     position: relative;
 }
 
+/* Background styling */
+#background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 175%;
+    height: 175%;
+    background: url('../assets/CosmosWheel3.png') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%) scale(2,1);
+    transform-origin: center center;
+    animation: rotateBg 240s linear infinite;
+    z-index: -10; /* Ensure background is behind everything */
+}
+
+/* Overlay styling */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
 /* Calendar container styling */
 .calendar-container {
     padding: 20px;
@@ -104,7 +131,8 @@ footer {
     background-color: #fff; /* White background for the calendar */
     color: #003F87; /* Primary Cub Scout Blue text */
     border-radius: 10px;
-    max-width: 100%; /* Ensure the calendar container takes full width */
+    width: 90%; /* Ensure the calendar container takes up most of the screen */
+    max-width: 1200px; /* Allow calendar to stretch wider */
     box-sizing: border-box;
 }
 
@@ -156,5 +184,3 @@ iframe {
 .mobile-buttons {
     display: none;
 }
-
-
