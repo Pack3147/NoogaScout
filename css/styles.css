@@ -130,7 +130,7 @@ header {
     color: #003F87; /* Primary Cub Scout Blue text */
     border-radius: 10px; /* Rounded corners */
     max-width: 900px; /* Maximum width for content */
-    width: 90%; /* Ensure content takes up most of the screen */
+    width: 100%; /* Use full width available on the page */
     overflow: hidden; /* Ensure content is not cut off */
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
     text-align: center; /* Center align the text in the content */
@@ -205,5 +205,10 @@ footer {
 
     body.sub-page {
         background-color: transparent; /* Ensure sub-page background is transparent on mobile */
+    }
+
+    .content {
+        width: 90%; /* Ensure the content is within the screen width for mobile */
+        margin: 20px auto; /* Adjust margin for mobile */
     }
 }
