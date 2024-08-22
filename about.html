@@ -40,6 +40,20 @@
             }
         }
     </script>
+    <style>
+        /* Additional Styles for the List */
+        ul {
+            list-style-type: none; /* Remove bullets */
+            padding-left: 0; /* Remove default padding */
+            text-align: center; /* Center align the list items */
+            margin: 0 auto; /* Center the entire list block */
+            display: inline-block; /* Display the list items inline */
+        }
+
+        ul li {
+            margin-bottom: 10px; /* Add spacing between list items */
+        }
+    </style>
 </head>
 <body class="sub-page" onload="includeHTML()">
 
@@ -60,14 +74,18 @@
 
         <h3>Contact Information</h3>
         <p><strong>Cubmaster:</strong></p>
-        <p>Michael May<br>
-        Email: <a href="mailto:May.michael6@gmail.com">May.michael6@gmail.com</a><br>
-        Phone: 770-361-1313</p>
+        <ul>
+            <li>Michael May</li>
+            <li>Email: <a href="mailto:May.michael6@gmail.com">May.michael6@gmail.com</a></li>
+            <li>Phone: 770-361-1313</li>
+        </ul>
 
         <p><strong>Committee Chair:</strong></p>
-        <p>Chris Schumann<br>
-        Email: <a href="mailto:ceschumann1775@gmail.com">ceschumann1775@gmail.com</a><br>
-        Phone: 423-290-4886</p>
+        <ul>
+            <li>Chris Schumann</li>
+            <li>Email: <a href="mailto:ceschumann1775@gmail.com">ceschumann1775@gmail.com</a></li>
+            <li>Phone: 423-290-4886</li>
+        </ul>
     </section>
 
     <div include-html="footer.html"></div>
