@@ -122,7 +122,7 @@ header {
     text-align: center; /* Center text within the available width */
 }
 
-/* Content section styling */
+/* Content section styling for subpages */
 .content {
     padding: 20px;
     margin: 50px auto;
@@ -130,8 +130,7 @@ header {
     color: #003F87; /* Primary Cub Scout Blue text */
     border-radius: 10px; /* Rounded corners */
     max-width: 900px; /* Maximum width for content */
-    width: 100%; /* Use full width available on the page */
-    overflow: hidden; /* Ensure content is not cut off */
+    width: 90%; /* Ensure content takes up most of the screen */
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
     text-align: center; /* Center align the text in the content */
     z-index: 2; /* Ensure content stays above background and overlay */
