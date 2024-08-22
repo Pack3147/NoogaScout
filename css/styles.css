@@ -66,9 +66,9 @@ header {
 
 /* Background styling for sub-pages */
 .sub-page {
-    background-color: #003F87; /* Add a solid Primary Cub Scout Blue background for sub-pages */
-    color: #fff; /* Ensure text color is readable */
-    min-height: 100vh; /* Ensure sub-page takes up full height */
+    background-color: #003F87;
+    min-height: 100vh;
+    border: 2px solid blue; /* Add this for debugging */
 }
 
 /* Content section styling for subpages */
