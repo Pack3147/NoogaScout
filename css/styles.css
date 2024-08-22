@@ -185,3 +185,15 @@ footer {
     z-index: 10;
 }
 
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center align the text */
+}
+
+ul li {
+    display: inline-block; /* Make the list items inline-block to align them properly */
+    margin-bottom: 10px; /* Add some space between list items */
+    text-align: left; /* Ensure text within each item is left-aligned */
+}
+
