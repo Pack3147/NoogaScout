@@ -64,62 +64,11 @@ header {
     font-size: 1.2em;
 }
 
-/* Background styling for the index page */
-#index-page #background {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 175%;
-    height: 175%;
-    background: url('../assets/CosmosWheel3.png') no-repeat center center;
-    background-size: contain;
-    transform: translate(-50%, -50%) scale(2,1);
-    transform-origin: center center;
-    animation: rotateBg 240s linear infinite;
-    z-index: -10; /* Ensure background is behind everything */
-}
-
 /* Background styling for sub-pages */
 .sub-page {
-    background-color: transparent; /* Set background color to transparent for mobile */
-}
-
-.sub-page #background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/StaticBackground.png') no-repeat center center/cover; /* Example static background */
-    z-index: -10;
-    pointer-events: none;
-}
-
-/* Overlay styling */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
-    z-index: 0; /* Ensure overlay is behind mobile buttons */
-    pointer-events: none;
-}
-
-/* Headline styling */
-.headline {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 3em;
-    font-family: 'Brush Script MT', cursive;
-    text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
-    z-index: 5; /* Ensure headline is above background and overlay */
-    width: 100%;
-    text-align: center; /* Center text within the available width */
+    background-color: #003F87; /* Add a solid Primary Cub Scout Blue background for sub-pages */
+    color: #fff; /* Ensure text color is readable */
+    min-height: 100vh; /* Ensure sub-page takes up full height */
 }
 
 /* Content section styling for subpages */
@@ -133,7 +82,7 @@ header {
     width: 90%; /* Ensure content takes up most of the screen */
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
     text-align: center; /* Center align the text in the content */
-    z-index: 2; /* Ensure content stays above background and overlay */
+    z-index: 2; /* Ensure content stays above background */
 }
 
 /* Lists styling */
@@ -167,47 +116,4 @@ footer {
     text-align: center;
     position: fixed;
     bottom: 0;
-}
-
-/* Background rotation animation */
-@keyframes rotateBg {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
-    }
-}
-
-/* Media Query for Mobile Devices */
-@media only screen and (max-width: 768px) {
-    .desktop-nav {
-        display: none; /* Hide desktop nav on mobile */
-    }
-    
-    .mobile-buttons {
-        display: flex; /* Show mobile buttons */
-        z-index: 10; /* Ensure mobile buttons are above everything */
-    }
-
-    .headline {
-        font-size: 2em; /* Reduce headline size for mobile */
-        top: 50%; /* Keep centered vertically */
-        left: 50%; /* Keep centered horizontally */
-        transform: translate(-50%, -50%);
-        z-index: 5; /* Ensure headline stays above background and overlay */
-    }
-
-    #background {
-        z-index: -10; /* Ensure background stays behind everything */
-    }
-
-    body.sub-page {
-        background-color: transparent; /* Ensure sub-page background is transparent on mobile */
-    }
-
-    .content {
-        width: 90%; /* Ensure the content is within the screen width for mobile */
-        margin: 20px auto; /* Adjust margin for mobile */
-    }
 }
