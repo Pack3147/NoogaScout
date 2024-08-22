@@ -3,12 +3,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #003F87; /* Solid Primary Cub Scout Blue */
-    color: #fff;
     text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+/* Specific styling for the index page */
+#index-page {
+    background-color: #000;
+    color: #fff;
 }
 
 /* Header styling */
@@ -64,15 +68,103 @@ header {
     font-size: 1.2em;
 }
 
-/* Background styling for sub-pages */
-.sub-page {
-    background-color: #003F87;
-    min-height: 100vh;
-    border: 2px solid blue; /* Add this for debugging */
+/* Background styling for the index page */
+#index-page #background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 175%;
+    height: 175%;
+    background: url('../assets/CosmosWheel3.png') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%) scale(2,1);
+    transform-origin: center center;
+    animation: rotateBg 240s linear infinite;
+    z-index: -10; /* Ensure background is behind everything */
 }
 
-/* Content section styling for subpages */
-.content {
+/* Overlay styling for the index page */
+#index-page #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
+    z-index: 0; /* Ensure overlay is behind mobile buttons */
+    pointer-events: none;
+}
+
+/* Headline styling */
+.headline {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
+    z-index: 5; /* Ensure headline is above background and overlay */
+    width: 100%;
+    text-align: center; /* Center text within the available width */
+}
+
+/* Spacer for pushing footer */
+.spacer {
+    flex-grow: 1;
+}
+
+/* Footer styling */
+footer {
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    padding: 10px 0;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+/* Background rotation animation */
+@keyframes rotateBg {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .desktop-nav {
+        display: none; /* Hide desktop nav on mobile */
+    }
+    
+    .mobile-buttons {
+        display: flex; /* Show mobile buttons */
+        z-index: 10; /* Ensure mobile buttons are above everything */
+    }
+
+    .headline {
+        font-size: 2em; /* Reduce headline size for mobile */
+        top: 50%; /* Keep centered vertically */
+        left: 50%; /* Keep centered horizontally */
+        transform: translate(-50%, -50%);
+        z-index: 5; /* Ensure headline stays above background and overlay */
+    }
+}
+
+/* Styling for Subpages */
+.sub-page {
+    background-color: #003F87; /* Solid Primary Cub Scout Blue */
+    color: #fff; /* Ensure text color is readable */
+    min-height: 100vh; /* Ensure sub-page takes up full height */
+}
+
+.sub-page .content {
     padding: 20px;
     margin: 50px auto;
     background-color: #fff; /* White background for readability */
@@ -85,35 +177,11 @@ header {
     z-index: 2; /* Ensure content stays above background */
 }
 
-/* Lists styling */
-ul {
-    list-style-type: none; /* Remove bullets from the list */
-    padding-left: 0; /* Remove default padding */
-    text-align: center; /* Center align the list items */
-    margin: 10px 0;
-    display: inline-block; /* Center the entire list block */
-}
-
-ul li {
-    margin-bottom: 10px; /* Add spacing between list items */
-}
-
-/* Image styling */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-/* Footer styling */
-footer {
-    background-color: #003F87; /* Primary Cub Scout Blue */
-    color: #FCD116; /* Secondary Cub Scout Yellow */
-    padding: 10px 0;
+/* Subpage Header */
+.sub-page header {
+    background-color: #003F87;
+    color: #FCD116;
+    padding: 15px 0;
     z-index: 10;
-    width: 100%;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
 }
+
