@@ -66,6 +66,7 @@ header {
     font-weight: bold;
     border-radius: 5px;
     font-size: 1.2em;
+     z-index: 22;
 }
 
 /* Background styling for the index page */
