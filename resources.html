@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - NoogaScout</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS -->
+    <script>
+        var pageTitle = "Resources"; // Set the custom title for this page
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+
+                                // Check if the element loaded is the header and set the title
+                                if (elmnt.getAttribute("include-html") === "header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Cub Scout Pack 3147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+</head>
+<body class="sub-page" onload="includeHTML()">
+
+    <div include-html="header.html"></div>
+
+    <div id="background"></div>
+
+    <section class="content">
+        <h2>Internet Links</h2>
+        <p>Useful links for Scouts and Leaders:</p>
+        <div class="link-container">
+            <p><a href="https://scoutbook.scouting.org/" target="_blank">Scoutbook</a></p>
+            <p><a href="https://training.scouting.org/learning-plans/1179?bc=W3siaWQiOiIvaG9tZSIsImlzUGFyZW50Um91dGUiOnRydWUsImtpbmQiOiJwZyIsInRleHQiOiIiLCJzZWFyY2hQYXJhbXMiOiIiLCJ1dWlkIjoiL2hvbWUifSx7ImlkIjoiNiIsImlzUGFyZW50Um91dGUiOmZhbHNlLCJraW5kIjoicGciLCJ0ZXh0IjoiIiwic2VhcmNoUGFyYW1zIjoiP2JjPVczc2lhV1FpT2lJdmFHOXRaU0lzSW1selVHRnlaVzUwVW05MWRHVWlPblJ5ZFdVc0ltdHBibVFpT2lKd1p5SXNJblJsZUhRaU9pSWlMQ0p6WldGeVkyaFFZWEpoYlhNaU9pSWlMQ0oxZFdsa0lqb2lMMmh2YldVaWZWMD0iLCJ1dWlkIjoiMDBjNDg2N2MtMDRmMC00ZDE3LWI5NTMtNDZmMjVlMWI0MDYzIn1d" target="_blank">Adult YPT (Youth Protection Training)</a></p>
+            <p><strong>Scouting Mobile App</strong></p>
+            <ul>
+                <li><a href="https://apps.apple.com/us/app/scouting/id1218464473" target="_blank">iOS</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.bsa.sbm&hl=en&pli=1" target="_blank">Google Play</a></li>
+            </ul>
+            <p><a href="https://www.scouting.org/health-and-safety/gss/" target="_blank">Guide to Safe Scouting</a></p>
+        </div>
+
+        <h2>Downloadable Forms</h2>
+        <p>
+            Below are the forms you may need to complete as part of your involvement with Pack 3147. Please download and fill out the necessary forms.
+        </p>
+        <div class="link-container">
+            <p><a href="forms/Adult%20Leader%20Application.pdf" target="_blank">Adult Leader Application</a></p>
+            <p><a href="forms/MedForm%20-%20AB.pdf" target="_blank">Medical Form - Parts A & B</a></p>
+        </div>
+    </section>
+
+    <div include-html="footer.html"></div>
+
+</body>
+</html>
