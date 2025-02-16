@@ -21,7 +21,6 @@
                             if (this.status == 200) {
                                 elmnt.innerHTML = this.responseText;
 
-                                // Check if the element loaded is the header and set the title
                                 if (elmnt.getAttribute("include-html") === "header.html") {
                                     document.getElementById('page-title').innerText = pageTitle || "Cub Scout Pack 3147";
                                 }
@@ -39,25 +38,66 @@
                 }
             }
         }
+
+        // Hardcoded JSON data for mulch sale items
+        const mulchItems = [
+            {
+                name: "Brown Mulch",
+                description: "3 cuft of natural colored brown mulch in a bag",
+                image: "assets/brown-mulch-bag.jpg",
+                link: "https://www.squarespace.com/samplelink1"
+            },
+            {
+                name: "Black Mulch",
+                description: "3 cuft of natural black mulch in a bag",
+                image: "assets/black-mulch-bag.jpg",
+                link: "https://www.squarespace.com/samplelink2"
+            },
+            {
+                name: "Red Mulch",
+                description: "3 cuft of natural red mulch in a bag",
+                image: "assets/red-mulch-bag.jpg",
+                link: "https://www.squarespace.com/samplelink3"
+            }
+        ];
+
+        // Function to dynamically populate the mulch sale items
+        function loadMulchItems() {
+            let container = document.getElementById('mulch-sale');
+            mulchItems.forEach(item => {
+                let card = document.createElement('div');
+                card.classList.add('card');
+
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">${item.name}</h3>
+                        <p class="card-description">${item.description}</p>
+                        <a href="${item.link}" class="card-button" target="_blank">Purchase</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        window.onload = function() {
+            includeHTML();
+            loadMulchItems();
+        };
     </script>
 </head>
-<body class="sub-page" onload="includeHTML()">
+<body class="fundraiser-page">
 
     <div include-html="header.html"></div>
 
-    <div id="background"></div>
-
     <section class="content">
-        <h2>Upcoming Fundraiser</h2>
+        <h2>Mulch Sale Fundraiser</h2>
         <p>
-            We are excited to announce that we will be hosting a fundraiser in March! This event will help support NoogaScout's activities and programs throughout the year.
+            Support NoogaScout Pack 3147 by purchasing high-quality mulch! Proceeds go toward funding activities and outdoor adventures for our scouts.
         </p>
-        <p>
-            Stay tuned for more details, including how you can participate and contribute to the success of our fundraiser. We appreciate your support!
-        </p>
-        <p>
-            More information will be available soon. Please check back later.
-        </p>
+
+        <!-- Container for dynamically loaded mulch sale items -->
+        <div id="mulch-sale" class="card-container"></div>
     </section>
 
     <div include-html="footer.html"></div>
