@@ -229,8 +229,11 @@ footer {
 
 /* Image styling */
 .fundraiser-page .card-image {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ensures responsiveness */
+    max-width: 200px; /* Adjust this value to make the image smaller */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
 }
 
 /* Card content */
