@@ -193,3 +193,87 @@ footer {
     display: block; /* Removes the inline-block spacing */
     margin: 20px auto; /* Center the image with some margin */
 }
+
+/* Fundraiser Page Styling */
+.fundraiser-page {
+    background-color: #f8f9fa; /* Light background to contrast with cards */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container for the mulch sale cards */
+.fundraiser-page .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* Space between cards */
+    padding: 16px;
+}
+
+/* Individual card styling */
+.fundraiser-page .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 32px); /* Three cards per row */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.fundraiser-page .card:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+/* Image styling */
+.fundraiser-page .card-image {
+    width: 100%;
+    height: auto;
+}
+
+/* Card content */
+.fundraiser-page .card-content {
+    padding: 16px;
+}
+
+.fundraiser-page .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.fundraiser-page .card-description {
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+/* Purchase button styling */
+.fundraiser-page .card-button {
+    background-color: #003F87; /* Cub Scout Blue */
+    color: #FCD116; /* Cub Scout Yellow */
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.fundraiser-page .card-button:hover {
+    background-color: #002b5c; /* Darker Blue for hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .fundraiser-page .card {
+        flex: 1 1 calc(50% - 32px); /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .fundraiser-page .card {
+        flex: 1 1 100%; /* One card per row on mobile */
+    }
+}
