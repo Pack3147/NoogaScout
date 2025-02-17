@@ -38,6 +38,25 @@
             }
         }
 
+        // JSON data for mulch products
+        const mulchItems = [
+            {
+                name: "Brown Mulch",
+                description: "MOST POPULAR! Cowart Premium Brown Mulch is a rich, long-lasting ground cover made from recycled wood and biodegradable colorants.",
+                image: "assets/Mulch-Brown.jpg"
+            },
+            {
+                name: "Black Mulch",
+                description: "Cowart Premium Black Mulch is a high-quality, long-lasting ground cover made from recycled wood and biodegradable colorants.",
+                image: "assets/Mulch-Black.jpg"
+            },
+            {
+                name: "Red Mulch",
+                description: "Cowart Premium Red Mulch is a vibrant, long-lasting ground cover made from recycled wood and biodegradable colorants.",
+                image: "assets/Mulch-Red.jpg"
+            }
+        ];
+
         // JSON data for services with descriptions
         const serviceOptions = [
             {
@@ -60,6 +79,23 @@
             }
         ];
 
+        // Function to load mulch items
+        function loadMulchItems() {
+            let container = document.getElementById('mulch-sale');
+            mulchItems.forEach(item => {
+                let card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">${item.name}</h3>
+                        <p class="card-description">${item.description}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
         // Function to load service options
         function loadServiceOptions() {
             let container = document.getElementById('service-options');
@@ -80,6 +116,7 @@
 
         window.onload = function() {
             includeHTML();
+            loadMulchItems();
             loadServiceOptions();
         };
     </script>
@@ -91,6 +128,10 @@
     <section class="content">
         <h2>Mulch Sale Fundraiser</h2>
         <p>Support NoogaScout Pack 3147 by purchasing high-quality local mulch! Below are our mulch options and service pricing.</p>
+
+        <!-- Mulch product selection -->
+        <h3>Mulch Options</h3>
+        <div id="mulch-sale" class="card-container"></div>
 
         <!-- Buy Now Button -->
         <div id="buy-now-button" style="display: flex; justify-content: center; margin-bottom: 20px;">
