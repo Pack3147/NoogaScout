@@ -280,3 +280,54 @@ footer {
         flex: 1 1 100%; /* One card per row on mobile */
     }
 }
+
+/* Horizontal Service Options */
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Service Cards */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Service Images */
+.service-image {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+/* Service Title */
+.service-content h4 {
+    margin: 5px 0;
+    font-size: 1.3rem;
+    color: #003F87; /* Cub Scout Blue */
+}
+
+/* Service Price */
+.service-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #FCD116; /* Cub Scout Yellow */
+}
+
+/* Service Description */
+.service-description {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 5px;
+    line-height: 1.4;
+}
