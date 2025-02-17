@@ -595,45 +595,62 @@ footer {
     margin-right: auto;
 }
 
-/* Service Cards - Make Them Bigger */
+/* Service Container - Keep It Centered */
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 900px; /* Reduce max width to make it slightly narrower */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Service Cards - Slightly Narrower */
 .service-card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    padding: 20px; /* Increased padding */
-    width: 350px; /* Increased card width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 280px; /* Reduced width to make it look better */
     text-align: center;
 }
 
-/* Service Image - Increase Size */
+/* Service Image - Full Width */
 .service-image {
-    width: 80px; /* Bigger icons */
-    height: 80px;
-    margin-bottom: 10px;
+    width: calc(100% - 20px); /* Make it as wide as the container minus padding */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 /* Service Title */
 .service-content h4 {
-    font-size: 1.5rem; /* Larger text */
+    font-size: 1.3rem;
     color: #003F87; /* Cub Scout Blue */
     margin-bottom: 5px;
 }
 
 /* Service Price */
 .service-price {
-    font-size: 1.2rem; /* Bigger pricing text */
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #003F87; /* Cub Scout Blue */
+    color: #FCD116; /* Cub Scout Yellow */
     margin-bottom: 10px;
 }
 
 /* Service Description */
 .service-description {
-    font-size: 1rem; /* Bigger text for better readability */
+    font-size: 1rem;
     color: #333;
     line-height: 1.5;
     padding: 0 10px;
 }
+
 
 /* Buy Now Button - Themed for Cub Scouts */
 .buy-now-btn {
