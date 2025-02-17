@@ -290,6 +290,298 @@ footer {
     margin-top: 20px;
 }
 
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specific styling for the index page */
+#index-page {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header styling */
+header {
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    padding: 15px 0;
+    z-index: 10;
+}
+
+/* Navigation menu styling */
+.desktop-nav {
+    display: block; /* Show desktop nav by default */
+}
+
+.desktop-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.desktop-nav ul li a {
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Mobile Navigation Styling */
+.mobile-buttons {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    z-index: 20; /* Ensure buttons are in front of all other elements */
+}
+
+.mobile-buttons a {
+    display: block;
+    background-color: #FCD116; /* Secondary Cub Scout Yellow */
+    color: #003F87; /* Primary Cub Scout Blue */
+    padding: 15px;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2em;
+     z-index: 22;
+}
+
+/* Background styling for the index page */
+#index-page #background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 175%;
+    height: 175%;
+    background: url('../assets/CosmosWheel3.png') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%) scale(2,1);
+    transform-origin: center center;
+    animation: rotateBg 240s linear infinite;
+    z-index: -10; /* Ensure background is behind everything */
+}
+
+/* Overlay styling for the index page */
+#index-page #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
+    z-index: 0; /* Ensure overlay is behind mobile buttons */
+    pointer-events: none;
+}
+
+/* Headline styling */
+.headline {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 2px 2px 4px #000; /* Optional: Add shadow for better readability */
+    z-index: 5; /* Ensure headline is above background and overlay */
+    width: 100%;
+    text-align: center; /* Center text within the available width */
+}
+
+/* Spacer for pushing footer */
+.spacer {
+    flex-grow: 1;
+}
+
+/* Footer styling */
+footer {
+    background-color: #003F87; /* Primary Cub Scout Blue */
+    color: #FCD116; /* Secondary Cub Scout Yellow */
+    padding: 10px 0;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+/* Background rotation animation */
+@keyframes rotateBg {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.5);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg) scale(1.5);
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .desktop-nav {
+        display: none; /* Hide desktop nav on mobile */
+    }
+    
+    .mobile-buttons {
+        display: flex; /* Show mobile buttons */
+        z-index: 20; /* Ensure mobile buttons are above everything */
+    }
+
+    .headline {
+        font-size: 2em; /* Reduce headline size for mobile */
+        top: 50%; /* Keep centered vertically */
+        left: 50%; /* Keep centered horizontally */
+        transform: translate(-50%, -50%);
+        z-index: 5; /* Ensure headline stays above background and overlay */
+    }
+}
+
+/* Styling for Subpages */
+.sub-page {
+    background-color: #003F87; /* Solid Primary Cub Scout Blue */
+    color: #fff; /* Ensure text color is readable */
+    min-height: 100vh; /* Ensure sub-page takes up full height */
+}
+
+.sub-page .content {
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #fff; /* White background for readability */
+    color: #003F87; /* Primary Cub Scout Blue text */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 900px; /* Maximum width for content */
+    width: 90%; /* Ensure content takes up most of the screen */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+    text-align: center; /* Center align the text in the content */
+    z-index: 2; /* Ensure content stays above background */
+}
+
+/* Subpage Header */
+.sub-page header {
+    background-color: #003F87;
+    color: #FCD116;
+    padding: 15px 0;
+    z-index: 10;
+}
+
+/* Ensure the image is contained within its parent */
+.scaleB.contain {
+    max-width: 100%; /* Ensure the image does not exceed the width of its container */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Removes the inline-block spacing */
+    margin: 20px auto; /* Center the image with some margin */
+}
+
+/* Fundraiser Page Styling */
+.fundraiser-page {
+    background-color: #f8f9fa; /* Light background to contrast with cards */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container for the mulch sale cards */
+.fundraiser-page .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* Space between cards */
+    padding: 16px;
+}
+
+/* Individual card styling */
+.fundraiser-page .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 32px); /* Three cards per row */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.fundraiser-page .card:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+/* Image styling */
+.fundraiser-page .card-image {
+    width: 100%; /* Ensures responsiveness */
+    max-width: 200px; /* Adjust this value to make the image smaller */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+/* Card content */
+.fundraiser-page .card-content {
+    padding: 16px;
+}
+
+.fundraiser-page .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.fundraiser-page .card-description {
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+/* Purchase button styling */
+.fundraiser-page .card-button {
+    background-color: #003F87; /* Cub Scout Blue */
+    color: #FCD116; /* Cub Scout Yellow */
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.fundraiser-page .card-button:hover {
+    background-color: #002b5c; /* Darker Blue for hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .fundraiser-page .card {
+        flex: 1 1 calc(50% - 32px); /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .fundraiser-page .card {
+        flex: 1 1 100%; /* One card per row on mobile */
+    }
+}
+
+/* Horizontal Service Options */
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
 /* Service Cards */
 .service-container {
     display: flex;
@@ -342,6 +634,32 @@ footer {
     line-height: 1.5;
     padding: 0 10px;
 }
+
+/* Buy Now Button - Themed for Cub Scouts */
+.buy-now-btn {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 48px;
+    height: 48px;
+    color: #FCD116; /* Cub Scout Yellow */
+    min-width: 220px;
+    background-color: #003F87; /* Cub Scout Blue */
+    text-align: center;
+    border: 2px solid #FCD116; /* Yellow border */
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.buy-now-btn:hover {
+    background-color: #FCD116; /* Yellow on hover */
+    color: #003F87; /* Blue text */
+    border-color: #003F87; /* Blue border */
+}
+
 
 /* Buy Now Button - Themed for Cub Scouts */
 .buy-now-btn {
