@@ -342,3 +342,29 @@ footer {
     line-height: 1.5;
     padding: 0 10px;
 }
+
+/* Buy Now Button - Themed for Cub Scouts */
+.buy-now-btn {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 48px;
+    height: 48px;
+    color: #FCD116; /* Cub Scout Yellow */
+    min-width: 220px;
+    background-color: #003F87; /* Cub Scout Blue */
+    text-align: center;
+    border: 2px solid #FCD116; /* Yellow border */
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.buy-now-btn:hover {
+    background-color: #FCD116; /* Yellow on hover */
+    color: #003F87; /* Blue text */
+    border-color: #003F87; /* Blue border */
+}
+
