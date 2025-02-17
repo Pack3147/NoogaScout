@@ -38,60 +38,27 @@
             }
         }
 
-        // JSON data for mulch products
-        const mulchItems = [
-            {
-                name: "Brown Mulch",
-                description: "MOST POPULAR! Cowart Premium Brown Mulch is a rich, long-lasting ground cover made from recycled wood and biodegradable colorants.",
-                image: "assets/Mulch-Brown.jpg"
-            },
-            {
-                name: "Black Mulch",
-                description: "Cowart Premium Black Mulch is a high-quality, long-lasting ground cover made from recycled wood and biodegradable colorants.",
-                image: "assets/Mulch-Black.jpg"
-            },
-            {
-                name: "Red Mulch",
-                description: "Cowart Premium Red Mulch is a vibrant, long-lasting ground cover made from recycled wood and biodegradable colorants.",
-                image: "assets/Mulch-Red.jpg"
-            }
-        ];
-
-        // JSON data for services
+        // JSON data for services with descriptions
         const serviceOptions = [
             {
                 service: "Pickup",
                 price: "$8.00 per bag",
-                image: "assets/loading.png"
+                image: "assets/loading.png",
+                description: "Bring your truck or trailer to Ooltewah United Methodist Church and Scouts will load your mulch on weekends March 1st through 16th."
             },
             {
                 service: "Delivery",
                 price: "$10.00 per bag",
-                image: "assets/delivery.png"
+                image: "assets/delivery.png",
+                description: "We will deliver to residences within 7 miles, as a bird flies, from Ooltewah United Methodist Church. We must be able to drive to property and unload a few feet from where we park. Our Scouts will not hike or packmule your bags to a remote cabin."
             },
             {
                 service: "Delivery & Spread",
                 price: "$12.00 per bag",
-                image: "assets/spreading.png"
+                image: "assets/spreading.png",
+                description: "Scouts will open bags, spread mulch into flower beds with a rake, and remove the empty bag. They will not remove old mulch or weed."
             }
         ];
-
-        // Function to load mulch items
-        function loadMulchItems() {
-            let container = document.getElementById('mulch-sale');
-            mulchItems.forEach(item => {
-                let card = document.createElement('div');
-                card.classList.add('card');
-                card.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">${item.name}</h3>
-                        <p class="card-description">${item.description}</p>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
 
         // Function to load service options
         function loadServiceOptions() {
@@ -103,7 +70,8 @@
                     <img src="${service.image}" alt="${service.service}" class="service-image">
                     <div class="service-content">
                         <h4>${service.service}</h4>
-                        <p>${service.price}</p>
+                        <p class="service-price">${service.price}</p>
+                        <p class="service-description">${service.description}</p>
                     </div>
                 `;
                 container.appendChild(serviceCard);
@@ -112,7 +80,6 @@
 
         window.onload = function() {
             includeHTML();
-            loadMulchItems();
             loadServiceOptions();
         };
     </script>
@@ -129,9 +96,6 @@
         <div id="buy-now-button" style="display: flex; justify-content: center; margin-bottom: 20px;">
             <a href="https://square.link/u/Cx9nTIrV?src=embed" class="buy-now-btn">Buy Now</a>
         </div>
-
-        <!-- Mulch product selection -->
-        <div id="mulch-sale" class="card-container"></div>
 
         <!-- Service selection -->
         <section id="service-section">
