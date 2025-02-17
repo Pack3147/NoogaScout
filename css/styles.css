@@ -291,43 +291,54 @@ footer {
 }
 
 /* Service Cards */
-.service-card {
+.service-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Increased spacing between cards */
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 80%; /* Make the service section wider */
+    max-width: 1200px; /* Prevent it from getting too wide on big screens */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Service Cards - Make Them Bigger */
+.service-card {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    padding: 20px; /* Increased padding */
+    width: 350px; /* Increased card width */
     text-align: center;
 }
 
-/* Service Images */
+/* Service Image - Increase Size */
 .service-image {
-    width: 200px;
-    height: 200px;
+    width: 80px; /* Bigger icons */
+    height: 80px;
     margin-bottom: 10px;
 }
 
 /* Service Title */
 .service-content h4 {
-    margin: 5px 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Larger text */
     color: #003F87; /* Cub Scout Blue */
+    margin-bottom: 5px;
 }
 
 /* Service Price */
 .service-price {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Bigger pricing text */
     font-weight: bold;
     color: #FCD116; /* Cub Scout Yellow */
+    margin-bottom: 10px;
 }
 
 /* Service Description */
 .service-description {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Bigger text for better readability */
     color: #333;
-    margin-top: 5px;
-    line-height: 1.4;
+    line-height: 1.5;
+    padding: 0 10px;
 }
