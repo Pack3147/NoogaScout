@@ -582,50 +582,36 @@ footer {
     margin-top: 20px;
 }
 
-/* Service Cards */
+/* Service Container - Keep Everything in One Row */
 .service-container {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Increased spacing between cards */
-    flex-wrap: wrap;
+    gap: 15px; /* Reduce spacing slightly to fit all cards */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
     margin-top: 20px;
-    width: 80%; /* Make the service section wider */
-    max-width: 1200px; /* Prevent it from getting too wide on big screens */
+    width: 90%; /* Allow more space */
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Service Container - Keep It Centered */
-.service-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Space between cards */
-    flex-wrap: wrap;
-    margin-top: 20px;
-    width: 80%;
-    max-width: 900px; /* Reduce max width to make it slightly narrower */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Service Cards - Slightly Narrower */
+/* Service Cards - Slightly Smaller to Fit */
 .service-card {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    width: 280px; /* Reduced width to make it look better */
+    width: 280px; /* Reduce width so all fit in one row */
     text-align: center;
 }
 
-/* Service Image - Full Width */
+/* Ensure Image is Full Width */
 .service-image {
-    width: calc(100% - 20px); /* Make it as wide as the container minus padding */
+    width: calc(100% - 20px); /* Ensure it fills the card width minus padding */
     max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto 10px;
-    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 /* Service Title */
