@@ -525,7 +525,7 @@ footer {
     max-width: 200px; /* Adjust this value to make the image smaller */
     height: auto; /* Maintain aspect ratio */
     display: block;
-    margin: 10px auto 0; /* Center the image */
+    margin: 20px auto 0; /* Center the image */
 }
 
 /* Card content */
