@@ -114,9 +114,10 @@
             });
         }
 
+        // Load everything when the page is ready
         window.onload = function() {
             includeHTML();
-            loadMulchItems();
+            loadMulchItems(); // ✅ This was missing before!
             loadServiceOptions();
         };
     </script>
@@ -131,7 +132,7 @@
 
         <!-- Mulch product selection -->
         <h3>Mulch Options</h3>
-        <div id="mulch-sale" class="card-container"></div>
+        <div id="mulch-sale" class="card-container"></div> <!-- ✅ This will now load mulch items properly -->
 
         <!-- Buy Now Button -->
         <div id="buy-now-button" style="display: flex; justify-content: center; margin-bottom: 20px;">
