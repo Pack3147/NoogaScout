@@ -573,23 +573,14 @@ footer {
     }
 }
 
-/* Horizontal Service Options */
+/* Service Container - Desktop: Keep in One Row */
 .service-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
+    flex-wrap: nowrap; /* Keeps services in one row on larger screens */
     margin-top: 20px;
-}
-
-/* Service Container - Keep Everything in One Row */
-.service-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Reduce spacing slightly to fit all cards */
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    margin-top: 20px;
-    width: 90%; /* Allow more space */
+    width: 90%;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -603,6 +594,20 @@ footer {
     padding: 10px;
     width: 280px; /* Reduce width so all fit in one row */
     text-align: center;
+}
+
+/* Responsive Design - Stack Services Vertically on Mobile */
+@media (max-width: 768px) {
+    .service-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center them */
+        gap: 20px; /* More space between cards */
+    }
+
+    .service-card {
+        width: 90%; /* Make them full width */
+        max-width: 350px; /* Limit max width */
+    }
 }
 
 /* Ensure Image is Full Width */
