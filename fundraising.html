@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising - NoogaScout</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to external CSS -->
     <script>
         var pageTitle = "Fundraising"; // Set the custom title for this page
 
@@ -42,21 +42,18 @@
         const mulchItems = [
             {
                 name: "Brown Mulch",
-                description: "MOST POPULAR! Cowart Premium Brown Mulch is a rich, long lasting ground cover made from recycled wood and biodegradable colorants that are Naturally-Friendly®.",
-                image: "assets/Mulch-Brown.jpg",
-                id: "brown-mulch"
+                description: "MOST POPULAR! Cowart Premium Brown Mulch is a rich, long-lasting ground cover made from recycled wood and biodegradable colorants.",
+                image: "assets/Mulch-Brown.jpg"
             },
             {
                 name: "Black Mulch",
-                description: "Cowart Premium Black Mulch is an impressive, long lasting ground cover made from recycled wood and biodegradable colorants that are Naturally-Friendly®.",
-                image: "assets/Mulch-Black.jpg",
-                id: "black-mulch"
+                description: "Cowart Premium Black Mulch is a high-quality, long-lasting ground cover made from recycled wood and biodegradable colorants.",
+                image: "assets/Mulch-Black.jpg"
             },
             {
                 name: "Red Mulch",
-                description: "Cowart Premium Red Mulch is a vibrant, long lasting ground cover made from recycled wood and biodegradable colorants that are Naturally-Friendly®.",
-                image: "assets/Mulch-Red.jpg",
-                id: "red-mulch"
+                description: "Cowart Premium Red Mulch is a vibrant, long-lasting ground cover made from recycled wood and biodegradable colorants.",
+                image: "assets/Mulch-Red.jpg"
             }
         ];
 
@@ -86,7 +83,7 @@
                 let card = document.createElement('div');
                 card.classList.add('card');
                 card.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="card-image" onclick="loadServiceOptions('${item.id}')">
+                    <img src="${item.image}" alt="${item.name}" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">${item.name}</h3>
                         <p class="card-description">${item.description}</p>
@@ -96,11 +93,9 @@
             });
         }
 
-        // Function to load service options when a mulch product is clicked
-        function loadServiceOptions(selectedMulch) {
+        // Function to load service options
+        function loadServiceOptions() {
             let container = document.getElementById('service-options');
-            container.innerHTML = ""; // Clear previous options
-
             serviceOptions.forEach(service => {
                 let serviceCard = document.createElement('div');
                 serviceCard.classList.add('service-card');
@@ -113,15 +108,12 @@
                 `;
                 container.appendChild(serviceCard);
             });
-
-            // Show service options and Buy Now button
-            document.getElementById('service-section').style.display = "block";
-            document.getElementById('buy-now-button').style.display = "flex";
         }
 
         window.onload = function() {
             includeHTML();
             loadMulchItems();
+            loadServiceOptions();
         };
     </script>
 </head>
@@ -131,50 +123,21 @@
 
     <section class="content">
         <h2>Mulch Sale Fundraiser</h2>
-        <p>
-            Support NoogaScout Pack 3147 by purchasing high-quality local mulch! Click on a mulch product below to view available services.
-        </p>
+        <p>Support NoogaScout Pack 3147 by purchasing high-quality local mulch! Below are our mulch options and service pricing.</p>
+
+        <!-- Buy Now Button -->
+        <div id="buy-now-button" style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <a href="https://square.link/u/Cx9nTIrV?src=embed" class="buy-now-btn">Buy Now</a>
+        </div>
 
         <!-- Mulch product selection -->
         <div id="mulch-sale" class="card-container"></div>
 
-        <!-- Service selection (hidden until a mulch product is clicked) -->
-        <section id="service-section" style="display: none;">
-            <h3>Select a Service Option</h3>
+        <!-- Service selection -->
+        <section id="service-section">
+            <h3>Pricing Options</h3>
             <div id="service-options" class="service-container"></div>
         </section>
-
-        <!-- Buy Now Button (hidden initially) -->
-        <div id="buy-now-button" style="display: none; justify-content: center; margin-top: 20px;">
-            <div style="
-                overflow: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: center;
-                width: 259px;
-                background: #FFFFFF;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-                border-radius: 10px;
-                font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
-            ">
-                <div style="padding: 20px;">
-                    <a target="_blank" href="https://square.link/u/Cx9nTIrV?src=embed" style="
-                        display: inline-block;
-                        font-size: 18px;
-                        line-height: 48px;
-                        height: 48px;
-                        color: #ffffff;
-                        min-width: 212px;
-                        background-color: #006aff;
-                        text-align: center;
-                        box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                        border-radius: 6px;
-                    ">Buy now</a>
-                </div>
-            </div>
-        </div>
 
     </section>
 
@@ -182,4 +145,3 @@
 
 </body>
 </html>
-
