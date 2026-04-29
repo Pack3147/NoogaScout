@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Troop 1147 - NoogaScout</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        var pageTitle = "About Troop 1147";
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                if (elmnt.getAttribute("include-html") === "../header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Troop 1147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: center;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="sub-page theme-girls" onload="includeHTML()">
+
+    <div include-html="../header.html"></div>
+
+    <!-- Quick unit navigation -->
+    <div class="unit-switcher">
+        <a href="../index.html" class="home-btn">← Home</a>
+        <a href="../pack/index.html" class="unit-link pack-link">Pack 3147</a>
+        <a href="../boys/index.html" class="unit-link boys-link">Boys Troop</a>
+    </div>
+
+    <div id="background"></div>
+
+    <section class="content">
+        <h2>About Troop 1147</h2>
+        <p>
+            Scouts BSA Troop 1147 is a youth-led troop based in Ooltewah, Tennessee, serving young women ages 11-17. We are dedicated to empowering girls through outdoor adventure, leadership development, and service to others in a girl-led, girl-friendly environment.
+        </p>
+
+        <h3>Meetings and Activities</h3>
+        <p>
+            Troop 1147 meets every Wednesday at 6:30 to 8:00 PM at Ooltewah United Methodist Church (6131 Relocation Way, Ooltewah, TN). We host monthly camping trips, high-adventure activities, and regular service projects.
+        </p>
+
+        <h3>Contact Information</h3>
+        <p><strong>Scout Master:</strong></p>
+        <ul>
+            <li>Kevin Mulkey</li>
+            <li>931-510-4639</li>
+        </ul>
+
+        <p><strong>Committee Chair:</strong></p>
+        <ul>
+            <li>Niki Schmidtke</li>
+            <li>319-321-5916</li>
+        </ul>
+    </section>
+
+    <div include-html="../footer.html"></div>
+
+</body>
+</html>

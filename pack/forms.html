@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack 3147 Forms - NoogaScout</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        var pageTitle = "Pack 3147 Forms";
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                if (elmnt.getAttribute("include-html") === "../header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Pack 3147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+</head>
+<body class="sub-page theme-pack" onload="includeHTML()">
+
+    <div include-html="../header.html"></div>
+
+    <!-- Quick unit navigation -->
+    <div class="unit-switcher">
+        <a href="../index.html" class="home-btn">← Home</a>
+        <a href="../boys/index.html" class="unit-link boys-link">Boys Troop</a>
+        <a href="../girls/index.html" class="unit-link girls-link">Girls Troop</a>
+    </div>
+
+    <div id="background"></div>
+
+    <section class="content">
+        <h2>Downloadable Forms</h2>
+        <p>
+            Below are the forms you may need to complete as part of your involvement with Pack 3147. Please download and fill out the necessary forms.
+        </p>
+        <div class="link-container">
+            <p><a href="../forms/Adult%20Leader%20Application.pdf" target="_blank">Adult Leader Application</a></p>
+            <p><a href="../forms/MedForm%20-%20AB.pdf" target="_blank">Medical Form - Parts A & B</a></p>
+        </div>
+    </section>
+
+    <div include-html="../footer.html"></div>
+
+</body>
+</html>

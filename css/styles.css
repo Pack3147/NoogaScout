@@ -9,6 +9,117 @@ body {
     flex-direction: column;
 }
 
+/* Theme variables - default (Pack 3147) */
+:root {
+    --primary: #003F87; /* Pack blue */
+    --secondary: #FCD116; /* Pack yellow */
+    --background: #000; /* default background for index */
+    --foreground: #fff;
+}
+
+/* Explicit Pack theme (same as root but gives a semantic class) */
+.theme-pack {
+    --primary: #003F87;
+    --secondary: #FCD116;
+    --background: #000;
+    --foreground: #fff;
+}
+
+/* Neutral hub palette (scout landing) */
+.theme-hub {
+    --primary: #24524a; /* muted teal */
+    --secondary: #e7d8a7; /* warm neutral */
+    --background: #0f1720; /* dark neutral */
+    --foreground: #f7f7f7;
+}
+
+/* Boys troop (red) palette */
+.theme-boys {
+    --primary: #8B0000; /* deep red */
+    --secondary: #FFD1C1; /* light warm accent */
+    --background: #2a0f0f;
+    --foreground: #fff7f5;
+}
+
+/* Girls troop (purple) palette */
+.theme-girls {
+    --primary: #5B2C6F; /* purple */
+    --secondary: #E8D7F1; /* pale purple accent */
+    --background: #1a0f1a;
+    --foreground: #fffafc;
+}
+
+/* Utility to apply theme variables to header/footer and buttons */
+header, footer {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+/* Hide header navigation on the index page - we'll use the unit control bar instead */
+#index-page header .desktop-nav,
+#index-page header .mobile-buttons {
+    display: none !important;
+}
+
+/* Unit control bar that sits fixed at the top-right (or bottom on mobile) */
+.unit-control {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 30;
+}
+
+.unit-control a {
+    padding: 10px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    background: var(--secondary);
+    color: var(--primary);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+@media only screen and (max-width: 768px) {
+    .unit-control {
+        bottom: 12px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Night-sky themed buttons only when on the index page */
+#index-page .unit-control a {
+    background: linear-gradient(180deg, rgba(30,44,71,0.95), rgba(12,22,40,0.95)); /* deep night gradient */
+    color: #E6F0FF; /* soft moonlight text */
+    border: 1px solid rgba(230,240,255,0.08);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+}
+
+#index-page .unit-control a:hover,
+#index-page .unit-control a:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(20,40,80,0.6), 0 0 10px rgba(150,180,255,0.08) inset;
+    background: linear-gradient(180deg, rgba(50,70,110,0.98), rgba(18,30,56,0.98));
+}
+
+#index-page .unit-control a:active {
+    transform: translateY(-1px);
+}
+
+.mobile-buttons a, .desktop-nav ul li a, .fundraiser-page .card-button {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* Page background color using theme variable */
+#index-page, .sub-page, .fundraiser-page {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
 /* Specific styling for the index page */
 #index-page {
     background-color: #000;
@@ -81,7 +192,7 @@ header {
     transform: translate(-50%, -50%) scale(2,1);
     transform-origin: center center;
     animation: rotateBg 240s linear infinite;
-    z-index: -10; /* Ensure background is behind everything */
+    z-index: -20; /* Ensure background is behind everything */
 }
 
 /* Overlay styling for the index page */
@@ -92,7 +203,7 @@ header {
     width: 100%;
     height: 100%;
     background: url('../assets/CampingBackground.png') no-repeat center center/cover;
-    z-index: 0; /* Ensure overlay is behind mobile buttons */
+    z-index: -10; /* Ensure overlay is in front of cosmos but behind content */
     pointer-events: none;
 }
 
@@ -373,7 +484,7 @@ header {
     transform: translate(-50%, -50%) scale(2,1);
     transform-origin: center center;
     animation: rotateBg 240s linear infinite;
-    z-index: -10; /* Ensure background is behind everything */
+    z-index: -20; /* Ensure background is behind everything */
 }
 
 /* Overlay styling for the index page */
@@ -384,7 +495,7 @@ header {
     width: 100%;
     height: 100%;
     background: url('../assets/CampingBackground.png') no-repeat center center/cover;
-    z-index: 0; /* Ensure overlay is behind mobile buttons */
+    z-index: -10; /* Ensure overlay is in front of cosmos but behind content */
     pointer-events: none;
 }
 
@@ -694,3 +805,526 @@ footer {
     border-color: #003F87; /* Blue border */
 }
 
+
+/* ========================================
+   LANDING PAGE REDESIGN - UNIT CARDS
+   ======================================== */
+
+/* Landing page specific styling */
+#landing-page {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background styling for landing page */
+#landing-page #background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 175%;
+    height: 175%;
+    background: url('../assets/CosmosWheel3.png') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%) scale(2,1);
+    transform-origin: center center;
+    animation: rotateBg 240s linear infinite;
+    z-index: -20;
+}
+
+/* Overlay for landing page */
+#landing-page #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/CampingBackground.png') no-repeat center center/cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Headline positioning for landing page */
+#landing-page .headline {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
+    z-index: 15;
+    width: 90%;
+    text-align: center;
+}
+
+/* Unit cards container */
+.unit-cards-container {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 20px 100px 20px;
+    margin-top: 200px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+/* Individual unit card */
+.unit-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    width: 300px;
+    min-height: 320px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 3px solid transparent;
+}
+
+.unit-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* Pack card (Blue/Gold) */
+.pack-card {
+    border-color: #003F87;
+}
+
+.pack-card .card-header {
+    background: linear-gradient(135deg, #003F87, #0056b3);
+    color: #FCD116;
+}
+
+.pack-card:hover {
+    border-color: #FCD116;
+}
+
+.pack-card .explore-btn {
+    background-color: #003F87;
+    color: #FCD116;
+}
+
+.pack-card .explore-btn:hover {
+    background-color: #FCD116;
+    color: #003F87;
+}
+
+/* Boys card (Red) */
+.boys-card {
+    border-color: #CE1126;
+}
+
+.boys-card .card-header {
+    background: linear-gradient(135deg, #CE1126, #8B0000);
+    color: #fff;
+}
+
+.boys-card:hover {
+    border-color: #FF4444;
+}
+
+.boys-card .explore-btn {
+    background-color: #CE1126;
+    color: #fff;
+}
+
+.boys-card .explore-btn:hover {
+    background-color: #8B0000;
+}
+
+/* Girls card (Purple) */
+.girls-card {
+    border-color: #663399;
+}
+
+.girls-card .card-header {
+    background: linear-gradient(135deg, #663399, #5B2C6F);
+    color: #E8D7F1;
+}
+
+.girls-card:hover {
+    border-color: #9966CC;
+}
+
+.girls-card .explore-btn {
+    background-color: #663399;
+    color: #E8D7F1;
+}
+
+.girls-card .explore-btn:hover {
+    background-color: #5B2C6F;
+}
+
+/* Card header */
+.unit-card .card-header {
+    border-radius: 12px;
+    padding: 20px;
+    margin: -30px -30px 20px -30px;
+    text-align: center;
+}
+
+.unit-card .card-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.age-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Card body */
+.unit-card .card-body {
+    flex-grow: 1;
+    padding: 10px 0;
+}
+
+.unit-card .card-body p {
+    line-height: 1.6;
+    font-size: 1.05em;
+    color: #444;
+}
+
+/* Card footer with explore button */
+.unit-card .card-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+/* Landing footer */
+.landing-footer {
+    position: relative;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.85);
+    color: #E7D8A7;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.landing-footer p {
+    margin: 5px 0;
+}
+
+/* Mobile responsiveness for landing page */
+@media only screen and (max-width: 768px) {
+    #landing-page .headline {
+        font-size: 2em;
+        top: 10%;
+    }
+
+    .unit-cards-container {
+        margin-top: 150px;
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .unit-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #landing-page .headline {
+        font-size: 1.5em;
+    }
+
+    .unit-card .card-header h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* ========================================
+   UNIT-SPECIFIC PAGE THEMING
+   ======================================== */
+
+/* Boys troop theme */
+.theme-boys {
+    --primary: #CE1126;
+    --secondary: #FFD1C1;
+    --background: #2a0f0f;
+    --foreground: #fff7f5;
+}
+
+.theme-boys header,
+.theme-boys footer {
+    background-color: #CE1126;
+    color: #fff;
+}
+
+.theme-boys .content {
+    background-color: #fff;
+    color: #2a0f0f;
+    border: 3px solid #CE1126;
+}
+
+.theme-boys .link-button {
+    background-color: #CE1126;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.theme-boys .link-button:hover {
+    background-color: #8B0000;
+    transform: translateY(-2px);
+}
+
+/* Girls troop theme */
+.theme-girls {
+    --primary: #663399;
+    --secondary: #E8D7F1;
+    --background: #1a0f1a;
+    --foreground: #fffafc;
+}
+
+.theme-girls header,
+.theme-girls footer {
+    background-color: #663399;
+    color: #E8D7F1;
+}
+
+.theme-girls .content {
+    background-color: #fff;
+    color: #1a0f1a;
+    border: 3px solid #663399;
+}
+
+.theme-girls .link-button {
+    background-color: #663399;
+    color: #E8D7F1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.theme-girls .link-button:hover {
+    background-color: #5B2C6F;
+    transform: translateY(-2px);
+}
+
+/* Pack theme link buttons */
+.theme-pack .link-button {
+    background-color: #003F87;
+    color: #FCD116;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.theme-pack .link-button:hover {
+    background-color: #FCD116;
+    color: #003F87;
+    transform: translateY(-2px);
+}
+
+/* Quick links container */
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Unit switcher navigation */
+.unit-switcher {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.unit-switcher .home-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.unit-switcher .home-btn:hover {
+    background-color: #666;
+    transform: translateY(-2px);
+}
+
+.unit-switcher .unit-link {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.unit-switcher .pack-link {
+    background-color: #003F87;
+    color: #FCD116;
+}
+
+.unit-switcher .pack-link:hover {
+    background-color: #0056b3;
+}
+
+.unit-switcher .boys-link {
+    background-color: #CE1126;
+    color: #fff;
+}
+
+.unit-switcher .boys-link:hover {
+    background-color: #8B0000;
+}
+
+.unit-switcher .girls-link {
+    background-color: #663399;
+    color: #E8D7F1;
+}
+
+.unit-switcher .girls-link:hover {
+    background-color: #5B2C6F;
+}
+
+@media only screen and (max-width: 768px) {
+    .unit-switcher {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .unit-switcher a {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+/* ========================================
+   SCOUTING AMERICA LOGO
+   ======================================== */
+
+/* Logo container with background */
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 25;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.scouting-logo {
+    display: block;
+    width: 120px;
+    height: auto;
+}
+
+/* Mobile responsiveness for logo */
+@media only screen and (max-width: 768px) {
+    .logo-container {
+        top: 15px;
+        left: 15px;
+        padding: 10px;
+    }
+    
+    .scouting-logo {
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .logo-container {
+        top: 10px;
+        left: 10px;
+        padding: 8px;
+    }
+    
+    .scouting-logo {
+        width: 60px;
+    }
+}
+
+/* ========================================
+   DELAYED FADE-IN ANIMATIONS
+   ======================================== */
+
+/* Hide elements initially and fade in after 3 seconds */
+.logo-container,
+.unit-cards-container {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+    animation-delay: 3s;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Override the hover transform for unit cards during animation */
+.unit-cards-container {
+    transform: translateY(20px);
+}

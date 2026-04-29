@@ -3,58 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoogaScout - Welcome</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS -->
-    <script>
-        var pageTitle = "Welcome"; // Set the custom title for this page
-
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                file = elmnt.getAttribute("include-html");
-                if (file) {
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) {
-                                elmnt.innerHTML = this.responseText;
-
-                                // Check if the element loaded is the header and set the title
-                                if (elmnt.getAttribute("include-html") === "header.html") {
-                                    document.getElementById('page-title').innerText = pageTitle || "Cub Scout Pack 3147";
-                                }
-                            }
-                            if (this.status == 404) {
-                                elmnt.innerHTML = "Page not found.";
-                            }
-                            elmnt.removeAttribute("include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    return;
-                }
-            }
-        }
-    </script>
+    <meta name="description" content="Scouting Units in Ooltewah, Tennessee - Pack 3147, Troop 147 (Boys), and Troop 1147 (Girls)">
+    <title>NoogaScout - Scouting in Ooltewah</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body id="index-page" onload="includeHTML()">
+<body id="landing-page" class="theme-hub">
 
-    <div include-html="header.html"></div>
-
+    <!-- Animated starry background -->
     <div id="background"></div>
     <div id="overlay"></div>
 
+    <!-- Scouting America Logo in upper left -->
+    <div class="logo-container">
+        <img src="assets/Scouting-America-Logo.png" alt="Scouting America" class="scouting-logo">
+    </div>
+
+    <!-- Main headline -->
     <div class="headline">
         Disconnect and Do Something Real!
     </div>
 
-    <div class="spacer"></div> <!-- Spacer div to push footer to the bottom -->
-    
-    <div include-html="footer.html"></div>
+    <!-- Unit selection cards -->
+    <div class="unit-cards-container">
+        <a href="pack/index.html" class="unit-card pack-card">
+            <div class="card-header">
+                <h2>Pack 3147</h2>
+                <span class="age-badge">Ages 5-11</span>
+            </div>
+            <div class="card-body">
+                <p>Cub Scouts - Building character, outdoor fun, and adventure for elementary-aged youth.</p>
+            </div>
+            <div class="card-footer">
+                <span class="explore-btn">Explore Pack →</span>
+            </div>
+        </a>
+
+        <a href="boys/index.html" class="unit-card boys-card">
+            <div class="card-header">
+                <h2>Troop 147</h2>
+                <span class="age-badge">Ages 11-17</span>
+            </div>
+            <div class="card-body">
+                <p>Boys Troop - Leadership development, high adventure, and service for young men.</p>
+            </div>
+            <div class="card-footer">
+                <span class="explore-btn">Explore Troop →</span>
+            </div>
+        </a>
+
+        <a href="girls/index.html" class="unit-card girls-card">
+            <div class="card-header">
+                <h2>Troop 1147</h2>
+                <span class="age-badge">Ages 11-17</span>
+            </div>
+            <div class="card-body">
+                <p>Girls Troop - Empowering young women through outdoor adventure and leadership.</p>
+            </div>
+            <div class="card-footer">
+                <span class="explore-btn">Explore Troop →</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Footer info -->
+    <footer class="landing-footer">
+        <p>Ooltewah, Tennessee | Serving Hamilton County</p>
+        <p>&copy; 2026 NoogaScout. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
