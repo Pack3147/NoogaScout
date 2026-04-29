@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troop 147 Calendar - NoogaScout</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        var pageTitle = "Troop 147 Calendar";
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                if (elmnt.getAttribute("include-html") === "../header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Troop 147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+</head>
+<body class="sub-page theme-boys" onload="includeHTML()">
+
+    <div include-html="../header.html"></div>
+
+    <!-- Quick unit navigation -->
+    <div class="unit-switcher">
+        <a href="../index.html" class="home-btn">← Home</a>
+        <a href="../pack/index.html" class="unit-link pack-link">Pack 3147</a>
+        <a href="../girls/index.html" class="unit-link girls-link">Girls Troop</a>
+    </div>
+
+    <section class="calendar-container">
+        <!-- Troop 147 Calendar - Update with actual calendar link when available -->
+        <h2 style="text-align: center; padding: 40px;">Troop 147 Calendar</h2>
+        <p style="text-align: center;">Check Scoutbook or contact the Committee Chair for upcoming events and activities.</p>
+    </section>
+
+    <div include-html="../footer.html"></div>
+
+</body>
+</html>

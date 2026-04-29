@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cub Scout Pack 3147 - Ooltewah, Tennessee">
+    <title>Pack 3147 - Cub Scouts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        var pageTitle = "Pack 3147";
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                if (elmnt.getAttribute("include-html") === "../header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Pack 3147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+</head>
+<body class="sub-page theme-pack" onload="includeHTML()">
+
+    <div include-html="../header.html"></div>
+
+    <!-- Quick unit navigation -->
+    <div class="unit-switcher">
+        <a href="../index.html" class="home-btn">← Home</a>
+        <a href="../boys/index.html" class="unit-link boys-link">Boys Troop</a>
+        <a href="../girls/index.html" class="unit-link girls-link">Girls Troop</a>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to Pack 3147!</h1>
+        <h2>Cub Scouts (Ages 5-11)</h2>
+
+        <img src="../assets/CadesCove.jpeg" alt="Pack 3147 Activities" class="scaleB contain">
+
+        <h3>About Our Pack</h3>
+        <p>Pack 3147 serves all K-5 youth, both boys and girls, in the Ooltewah, Collegedale, and Apison areas. We focus on character development, outdoor adventures, and hands-on learning experiences.</p>
+
+        <h3>What We Do</h3>
+        <ul style="text-align: left; display: inline-block;">
+            <li>Weekly meetings on Mondays</li>
+            <li>Camping and outdoor adventures</li>
+            <li>STEM activities and hands-on learning</li>
+            <li>Service projects and community involvement</li>
+            <li>Advancement through ranks (Lion → Arrow of Light)</li>
+            <li>Fun, age-appropriate activities for all K-5 youth</li>
+        </ul>
+
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+            <a href="about.html" class="link-button">About Us</a>
+            <a href="calendar.html" class="link-button">Calendar</a>
+            <a href="registration.html" class="link-button">Join Pack 3147</a>
+            <a href="forms.html" class="link-button">Forms</a>
+            <a href="resources.html" class="link-button">Resources</a>
+        </div>
+
+        <h3>Meeting Information</h3>
+        <p><strong>Pack Meetings:</strong> Mondays, 7:00 PM - 8:00 PM</p>
+        <p><strong>Location:</strong> Gymnasium of Ooltewah United Methodist Church</p>
+        <p style="color: #CE1126; font-weight: bold; font-style: italic;">"Schools Out, No Pack Meetings"</p>
+        <p><em>We meet only when school is in session. No meetings during holidays, breaks, or inclement weather closures.</em></p>
+    </div>
+
+    <div include-html="../footer.html"></div>
+
+</body>
+</html>

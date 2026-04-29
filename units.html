@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar - NoogaScout</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS -->
+    <title>NoogaScout - Units</title>
+    <link rel="stylesheet" href="css/styles.css">
     <script>
-        var pageTitle = "Calendar"; // Set the custom title for this page
-
+        var pageTitle = "Units & Troops";
         function includeHTML() {
             var z, i, elmnt, file, xhttp;
             z = document.getElementsByTagName("*");
@@ -20,10 +19,8 @@
                         if (this.readyState == 4) {
                             if (this.status == 200) {
                                 elmnt.innerHTML = this.responseText;
-
-                                // Check if the element loaded is the header and set the title
                                 if (elmnt.getAttribute("include-html") === "header.html") {
-                                    document.getElementById('page-title').innerText = pageTitle || "Cub Scout Pack 3147";
+                                    document.getElementById('page-title').innerText = pageTitle || "NoogaScout";
                                 }
                             }
                             if (this.status == 404) {
@@ -41,18 +38,22 @@
         }
     </script>
 </head>
-<body class="sub-page" onload="includeHTML()">
-
+<body id="units-page" class="theme-hub" onload="includeHTML()">
     <div include-html="header.html"></div>
 
-    <section class="calendar-container">
-        <!-- Embed Google Calendar -->
-        <iframe src="https://calendar.google.com/calendar/embed?src=d85kmgp3prjutbeioglf6re70g%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0; width: 100%; height: 800px;" frameborder="0" scrolling="no"></iframe>
-    </section>
+    <main class="sub-page">
+        <div class="content">
+            <h2>Welcome to NoogaScout Units</h2>
+            <p>This landing page is the central hub for our Pack and Troops. Select a unit to visit their specific pages and information.</p>
 
-    <h3><p class="note">For Access Please Email Committee Chair or Cubmaster</p></h3>
+            <div class="service-container">
+                <a href="index.html" class="card-button" style="width:220px; display:block; border-radius:8px;">Pack 3147 (Pack)</a>
+                <a href="boys.html" class="card-button" style="width:220px; display:block; border-radius:8px;">Troop 147 (Boys)</a>
+                <a href="girls.html" class="card-button" style="width:220px; display:block; border-radius:8px;">Troop 1147 (Girls)</a>
+            </div>
+        </div>
+    </main>
 
     <div include-html="footer.html"></div>
-
 </body>
 </html>

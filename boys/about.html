@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Troop 147 - NoogaScout</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        var pageTitle = "About Troop 147";
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                if (elmnt.getAttribute("include-html") === "../header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Troop 147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: center;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="sub-page theme-boys" onload="includeHTML()">
+
+    <div include-html="../header.html"></div>
+
+    <!-- Quick unit navigation -->
+    <div class="unit-switcher">
+        <a href="../index.html" class="home-btn">← Home</a>
+        <a href="../pack/index.html" class="unit-link pack-link">Pack 3147</a>
+        <a href="../girls/index.html" class="unit-link girls-link">Girls Troop</a>
+    </div>
+
+    <div id="background"></div>
+
+    <section class="content">
+        <h2>About Troop 147</h2>
+        <p>
+            Scouts America Troop 147 is a youth-led troop based in Ooltewah, Tennessee, serving young men ages 11-17. We are dedicated to providing a strong Scouts BSA program that emphasizes leadership development, outdoor adventure, and service to others.
+        </p>
+
+        <h3>Meetings and Activities</h3>
+        <p>
+            Troop 147 meets every Monday at 6:30 PM at Ooltewah United Methodist Church (6131 Relocation Way, Ooltewah, TN). We host monthly camping trips, high-adventure activities, and regular service projects. Our troop also holds Committee Meetings on the first Monday of each month at 8:00 PM.
+        </p>
+
+        <h3>Contact Information</h3>
+        <p><strong>Scout Master:</strong></p>
+        <ul>
+            <li>John Green</li>
+            <li>423-582-1003</li>
+        </ul>
+
+        <p><strong>Committee Chair:</strong></p>
+        <ul>
+            <li>Ktja Jakob</li>
+            <li>423-633-9418</li>
+        </ul>
+    </section>
+
+    <div include-html="../footer.html"></div>
+
+</body>
+</html>

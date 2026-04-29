@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Pack 3147 - NoogaScout</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        var pageTitle = "About Pack 3147";
+
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                                if (elmnt.getAttribute("include-html") === "../header.html") {
+                                    document.getElementById('page-title').innerText = pageTitle || "Pack 3147";
+                                }
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: center;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="sub-page theme-pack" onload="includeHTML()">
+
+    <div include-html="../header.html"></div>
+
+    <!-- Quick unit navigation -->
+    <div class="unit-switcher">
+        <a href="../index.html" class="home-btn">← Home</a>
+        <a href="../boys/index.html" class="unit-link boys-link">Boys Troop</a>
+        <a href="../girls/index.html" class="unit-link girls-link">Girls Troop</a>
+    </div>
+
+    <div id="background"></div>
+
+    <section class="content">
+        <h2>About Pack 3147</h2>
+        <p>
+            Cub Scout Pack 3147 is a vibrant and active pack based in Ooltewah, Tennessee, serving the Ooltewah, Collegedale, and Apison areas. We are dedicated to providing a strong Cub Scouting program that emphasizes character development, outdoor adventure, and community involvement for all K-5 youth, both boys and girls.
+        </p>
+
+        <h3>Campouts and Meetings</h3>
+        <p>
+            Pack 3147 usually hosts five optional camping activities each year, providing opportunities for Scouts and their families to enjoy the great outdoors. We meet on Monday nights, 7:00 PM - 8:00 PM at the Gymnasium of Ooltewah United Methodist Church (6131 Relocation Way, Ooltewah, TN).
+        </p>
+        <p style="color: #CE1126; font-weight: bold; font-style: italic;">"Schools Out, No Pack Meetings"</p>
+        <p><em>We meet only when school is in session. No meetings during holidays, breaks, or inclement weather closures.</em></p>
+
+        <h3>Contact Information</h3>
+        <p><strong>Cubmaster:</strong></p>
+        <ul>
+            <li>Michael May</li>
+            <li>Email: <a href="mailto:May.michael6@gmail.com">May.michael6@gmail.com</a></li>
+            <li>Phone: 770-361-1313</li>
+        </ul>
+
+        <p><strong>Committee Chair:</strong></p>
+        <ul>
+            <li>Chris Schumann</li>
+            <li>Email: <a href="mailto:ceschumann1775@gmail.com">ceschumann1775@gmail.com</a></li>
+            <li>Phone: 423-290-4886</li>
+        </ul>
+    </section>
+
+    <div include-html="../footer.html"></div>
+
+</body>
+</html>
